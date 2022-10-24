@@ -3,7 +3,7 @@ body {
 	padding: 0;
 	font-family: 'Fira Sans Extra Condensed', sans-serif;
 	box-sizing: content-box;
-	background-color: #D0CCD0; 
+	background-color: #E3E4FA; 
 	letter-spacing: 0.05em;
 	/*background-color: #1C6E8C; */
 	color: #050311; 
@@ -22,7 +22,7 @@ body {
 }
 
 #container > header, #container > nav, th {
-	color: #D0CCD0;
+	color: #E3E4FA;
 }
 
 #container > header {
@@ -72,7 +72,7 @@ body {
 }
 
 #container nav ul li a:visited {
-	color: #D0CCD0;
+	color: #E3E4FA;
 }
 
 #container nav ul li a:hover {
