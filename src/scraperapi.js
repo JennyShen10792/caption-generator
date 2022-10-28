@@ -12,11 +12,13 @@ let scraped_headlines = [];
 await page.goto('https://www.lyrics.com/lyrics/heart', {timeout: 180000});
 let bodyHTML = await page.evaluate(() => document.body.innerHTML);
 let $ = cheerio.load(bodyHTML);
-let article_headlines = $('a[href*="/lyric-lf"] > div')
-article_headlines.each((index, element) => {
-title = $(element).find('pre').text()
+let article_headlines = $('.lyric-meta-title'); 
+let output = article_headlines.find('pre').text();
+
+$('.lyric-body').each((index, element) => {
+const title = $(element).text();
 scraped_headlines.push({
-'title': title
+'lyrics': title
 })
 });
 
