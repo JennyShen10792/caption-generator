@@ -2,7 +2,7 @@ const cheerio = require('cheerio');
 
 const puppeteer = require('puppeteer');
 
-let scraped_headlines = [];
+let lyrics_list = [];
 
 (async () => {
   const browser = await puppeteer.launch();
@@ -12,13 +12,13 @@ let scraped_headlines = [];
 await page.goto('https://www.lyrics.com/lyrics/heart', {timeout: 180000});
 let bodyHTML = await page.evaluate(() => document.body.innerHTML);
 let $ = cheerio.load(bodyHTML);
-let article_headlines = $('.lyric-meta-title'); 
-let output = article_headlines.find('pre').text();
+let label = $('.lyric-meta-title'); 
+let output = label.find('pre').text();
 
 $('.lyric-body').each((index, element) => {
-const title = $(element).text();
-scraped_headlines.push({
-'lyrics': title
+const lyrics = $(element).text();
+lyrics_list.push({
+'lyrics': lyrics
 })
 });
 
@@ -27,5 +27,5 @@ scraped_headlines.push({
       }
 
       await browser.close();
-    console.log(scraped_headlines)
+    console.log(lyrics_list)
 })();
