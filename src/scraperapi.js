@@ -9,7 +9,11 @@ let lyrics_list = [];
   const page = await browser.newPage();
 
     try {
-await page.goto('https://www.lyrics.com/lyrics/heart', {timeout: 180000});
+      await page.goto('https://www.lyrics.com/lyrics/', {timeout: 180000});
+      await page.waitForSelector("#search");
+      await page.type("#search", "heart");
+      await page.click("#page-word-search-button", {timeout: 180000});
+      await page.waitForSelector("pre.lyric-body");
 let bodyHTML = await page.evaluate(() => document.body.innerHTML);
 let $ = cheerio.load(bodyHTML);
 let label = $('.lyric-meta-title'); 
