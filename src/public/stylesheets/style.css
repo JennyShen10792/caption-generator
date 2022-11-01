@@ -3,15 +3,16 @@ body {
 	padding: 0;
 	font-family: 'Marker Felt', fantasy;
 	box-sizing: content-box;
-	background-color: #E3E4FA; 
+	background-color: #E3E4FA;
 	letter-spacing: 0.05em;
 	/*background-color: #1C6E8C; */
-	color: #050311; 
+	color: #050311;
 }
 
+/*
 #container {
 	display: grid;
-	/* WAT? */
+	WAT?
 	width: 100%;
 	height: 100vh;
 	grid-template-columns: 10em auto;
@@ -85,8 +86,29 @@ body {
 	bottom: 0px;
 	width: 10em;
 }
+*/
 
-form { 
+#container {
+	display: block;
+	position: relative;
+	width: 100%;
+	max-width: 100%;
+}
+
+#container>header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #274156;
+}
+
+#container>header h1 {
+	color: #E3E4FA;
+}
+
+
+
+form {
 	display: block;
 }
 
@@ -100,12 +122,12 @@ h2 {
 	text-align: center;
 }
 
-.form-container form > p {
+.form-container form>p {
 	display: inline-block;
 	padding: 0em 0.5em 0em 0.5em;
 }
 
-form#create-form > div {
+form#create-form>div {
 	text-align: left;
 	padding: 5px;
 }
@@ -138,7 +160,8 @@ table {
 	margin: auto;
 }
 
-td, th {
+td,
+th {
 	text-align: left;
 	padding: 5px;
 }
@@ -153,7 +176,7 @@ td {
 }
 
 th {
-	font-weight:bold;
+	font-weight: bold;
 	background-color: #274156;
 	color: #fff;
 }
@@ -167,10 +190,9 @@ footer {
 }
 
 .highlight {
-	background-color:#ffff88;
+	background-color: #ffff88;
 }
 
 .form-container form #addBtn {
 	width: auto;
 }
-
