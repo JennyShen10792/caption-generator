@@ -11,9 +11,6 @@ const user_keyword = document.getElementById("filterWord").value;
 
 function keyword_input() {
 
-    
-
-
     (async () => {
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
