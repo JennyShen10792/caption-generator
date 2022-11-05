@@ -16,15 +16,15 @@ app.get('/api/captions', function(req, res) {
 
 	console.log(req.query.type);
 	if (req.query.type != null) {
-		console.log("abs");
+	//	console.log("abs");
 		let lyrics_list = [];
 		
 		(async () => {
-		console.log("hi");
+	//	console.log("hi");
 		  const browser = await puppeteer.launch();
 		  const page = await browser.newPage();
    		  try {
-   			console.log("hello");
+   		//	console.log("hello");
 			await page.goto('https://www.lyrics.com/lyrics/' + req.query.type, {timeout: 180000});
 			let bodyHTML = await page.evaluate(() => document.body.innerHTML);
 			console.log(bodyHTML);
