@@ -9,6 +9,7 @@
 	</head>
 
 	<body>
+
 		<div id="container">
 			<header>
 				<h1>Pop Culture Caption Generator</h1>
@@ -16,6 +17,7 @@
 			<div id="content">
 				<h2>Generate a Caption from only One Word!</h2>
 				<div class="form-container">
+					<form method="GET" action="/">
 					<p>
 						Caption Type:
 						<select id="filterTpye" name="type" class="type">
@@ -25,12 +27,15 @@
 						</select>
 					</p>
 					<p>Keyword: <input type="text" id="filterWord" name="word" class="word" maxlength=""></p>
-					<input onclick = "keyword_input()" id="filterBtn" type="submit" value="Search">
+					<input  id="filterBtn" type="submit" value="Search">
 				</div>
-				
+				<tbody>
+					<div id="messages"></div>
+				</tbody>
+				<script src="js/main.js"></script> 
 			</div>
 		</div>
-		<script src="js/main.js"></script> 
+		
 	</body>
 
 </html>
