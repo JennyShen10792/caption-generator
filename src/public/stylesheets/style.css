@@ -9,6 +9,11 @@ body {
 	color: #050311;
 }
 
+#messages div {
+	margin-top: 30px;
+}
+
+
 /*
 #container {
 	display: grid;
