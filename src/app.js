@@ -117,7 +117,8 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
 	console.log(users)
 })
 
-app.delete('/logout', (req, res) => {
+//redirect to login page
+app.get('/logout', (req, res) => {
 	req.logOut()
 	res.redirect('/login')
 })
