@@ -1,7 +1,7 @@
 function displayRecord(record) {
 	const contentEle = document.getElementById("messages");
 	const div = document.createElement("div");
-	div.innerText = record["lyrics"];
+	div.innerText = record["captions"];
 	contentEle.appendChild(div);
 
 }
@@ -11,13 +11,21 @@ function displayMessages() {
 
 	let query = "";
 	let keyword = document.getElementById("filterWord");
+	let caption_category = document.getElementById("filterType");
 	if (keyword.value != null || keyword.value != "") {
 		query = "type=" + keyword.value;
+	}
+
+	if (caption_category.value != null || caption_category.value != "") {
+		query1 = "category=" + caption_category.value;
 	}
 
 	let url = 'http://localhost:3000/api/captions';
 	if (query != "") {
 		url += "?" + query;
+	}
+	if (caption_category != "") {
+		url += "&" + query1;
 	}
 
 	const contentEle = document.getElementById("messages");
