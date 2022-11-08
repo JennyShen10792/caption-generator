@@ -100,18 +100,48 @@ body {
 	max-width: 100%;
 }
 
-#container>header {
+#header {
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
+
 	background-color: #274156;
+
+	width: 850px;
+	height: 70px;
+	margin: 10px auto 10px auto;
+
+	border-radius: 10px;
+
 }
 
-#container>header h1 {
-	color: #E3E4FA;
+#header h1 {
+	color: rgb(227, 228, 250);
 }
 
+#left-col {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
 
+#right-col #links {
+	display: flex;
+	vertical-align: middle;
+	justify-content: space-around;
+	width: 300px;
+}
+
+#links li {
+	list-style: none;
+}
+
+#links a {
+	color: rgb(227, 228, 250);
+	letter-spacing: 0.2px;
+	font-size: 20px;
+	text-transform: lowercase;
+}
 
 form {
 	display: block;
