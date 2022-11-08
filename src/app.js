@@ -120,7 +120,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
 //redirect to login page
 app.get('/logout', (req, res) => {
 	req.logOut()
-	res.redirect('/login')
+	res.redirect('/')
 })
 
 function checkAuthenticated(req, res, next) {

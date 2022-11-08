@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    margin: 0 auto;
+    width: 95vw;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main {
+    margin: 0 auto;
+    width: 95vw;
+    display: block;
+}
+
+.form {
+    display: block;
+}
