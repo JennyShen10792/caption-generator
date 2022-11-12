@@ -17,7 +17,7 @@ User.plugin(passportLocalMongoose);
 Caption.plugin(URLSlugs('name'));
 
 mongoose.model('User', User);
-
+mongoose.model('Caption', Caption);
 
 // is the environment variable, NODE_ENV, set to PRODUCTION? 
 let dbconf;
