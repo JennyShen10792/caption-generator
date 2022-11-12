@@ -4,20 +4,6 @@ const express = require('express'),
   mongoose = require('mongoose'),
   User = mongoose.model('User');
 
-<<<<<<< HEAD
-router.get('/logout', function (req, res) {
-  req.logout(function (err) {
-    if (err)
-      return res.status(500).send(err);
-    res.redirect('/');
-  })
-});
-=======
-// router.get('/logout', (req, res) => {
-//   req.logout();
-//   res.redirect('/');
-// });
->>>>>>> d20ae67986187bcc920a6730a25717ddfa1847f9
 
 router.get('/logout', function (req, res) {
   req.logout(function (err) {
@@ -25,7 +11,7 @@ router.get('/logout', function (req, res) {
       return res.status(500).send(err);
     res.redirect('/');
   })
-})
+});
 
 router.get('/', (req, res) => {
   res.render('home');
