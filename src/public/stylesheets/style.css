@@ -13,7 +13,7 @@ body {
 	margin-top: 30px;
 	text-align: center;
 }
-
+outputbutton { background:none; border:none; text-decoration: underline;}
 
 /*
 #container {
