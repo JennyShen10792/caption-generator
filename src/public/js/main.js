@@ -4,6 +4,16 @@ function displayRecord(record) {
 	div.innerText = record["captions"];
 	contentEle.appendChild(div);
 
+}   
+
+function doSomething() {
+	if (confirm('Are you sure you want to save this caption?')) {
+  // Save it!
+ 	 	alert('Caption was saved!');
+	} else {
+  // Do nothing!
+  		alert('Caption was not saved.');
+	}
 }
 
 function displayMessages() {
@@ -54,6 +64,9 @@ function main() {
 
 	const filterBtn = document.getElementById("filterBtn"); 
 	filterBtn.onclick = clickFilter;	
+	
+	var anchor = document.getElementById("anchor");
+	anchor.addEventListener('click', doSomething, false);
 
 }
 
