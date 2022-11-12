@@ -4,9 +4,12 @@ const express = require('express'),
     mongoose = require('mongoose'),
     User = mongoose.model('User');
 
-router.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/');
+router.get('/logout', function (req, res) {
+  req.logout(function (err) {
+    if (err)
+      return res.status(500).send(err);
+    res.redirect('/');
+  })
 });
 
 router.get('/', (req, res) =>  {
