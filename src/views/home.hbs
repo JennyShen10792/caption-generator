@@ -1,6 +1,7 @@
 {{#if user}}
-<h3> Logged in as {{user.username}}</h3>
-<head>
+	<h3> Logged in as {{user.username}}</h3>
+
+	<head>
 		<title></title>
 		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
 		<link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" title="no title"
@@ -17,7 +18,9 @@
 				</div>
 
 				<div id="right-col">
-					
+					<div id="links">
+						<li><a href="/logout">logout</a></li>
+					</div>
 				</div>
 			</div>
 			<div id="content">
@@ -34,16 +37,17 @@
 					<p>Keyword: <input type="text" id="filterWord" name="word" class="word" maxlength=""></p>
 					<input onclick="keyword_input()" id="filterBtn" type="submit" value="Search">
 				</div>
-				<outputbutton class="anchor"onclick="doSomething()">{{caption}}</button>
-				<tbody>
-					<div id="messages"></div>
+				<outputbutton class="anchor" onclick="doSomething()">{{caption}}</button>
+					<tbody>
+						<div id="messages"></div>
 					</tbody>
 			</div>
 		</div>
 		<script src="js/main.js"></script>
 	</body>
 {{else}}
-<head>
+
+	<head>
 		<title></title>
 		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
 		<link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" title="no title"
@@ -63,9 +67,6 @@
 					<div id="links">
 						<li><a href="/login">Login</a></li>
 						<li><a href="/register">Register</a></li>
-
-						<!-- <li><a href="login.html">Login</a></li>
-						<li><a href="register.html">Register</a></li> -->
 					</div>
 				</div>
 			</div>
@@ -83,10 +84,10 @@
 					<p>Keyword: <input type="text" id="filterWord" name="word" class="word" maxlength=""></p>
 					<input onclick="keyword_input()" id="filterBtn" type="submit" value="Search">
 				</div>
-				
+
 				<tbody>
 					<div id="messages"></div>
-					</tbody>
+				</tbody>
 			</div>
 		</div>
 		<script src="js/main.js"></script>
