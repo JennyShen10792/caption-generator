@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
 	dbconf = conf.dbconf;
 } else {
 	// if we're not in PRODUCTION mode, then use
- 	dbconf = 'mongodb://127.0.0.1:27017/project';
+ 	dbconf = 'mongodb://127.0.0.1:27017/collab';
 }
 
 console.log("dbconf: ", dbconf);

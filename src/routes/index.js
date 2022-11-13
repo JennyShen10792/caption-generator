@@ -24,7 +24,9 @@ router.get('/login', (req, res) => {
 router.get('/register', (req, res) => {
   res.render('register');
 });
-
+router.get('/captions', (req, res) => {
+  res.render('captions');
+});
 router.post('/register', (req, res) => {
   const { username, password } = req.body;
   User.register(new User({ username }), req.body.password, (err, user) => {
@@ -49,5 +51,7 @@ router.post('/login', (req, res, next) => {
     }
   })(req, res, next);
 });
-
+router.post('/captions', (req, res) => {
+	res.render('captions')
+});
 module.exports = router;
