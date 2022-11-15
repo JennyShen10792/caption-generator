@@ -20,14 +20,21 @@ const sessionOptions = {
     resave: true,
       saveUninitialized: true
 };
+//app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.use(session(sessionOptions));
 app.set('view engine', 'hbs');
 app.use(express.urlencoded({ extended: false }));
+//app.use(express.static("images"));
+
+app.get("/home", (req, res) => {
+  res.render("home");
+});
 
 const publicPath = path.resolve(__dirname, "public");
 app.use(express.static(publicPath));
 
-// app.use(express.static(path.join(__dirname, 'public')));
+
+//app.use(express.static(path.join(__dirname, '/views')));
 
 // passport setup
 app.use(passport.initialize());
@@ -39,15 +46,18 @@ app.use((req, res, next) => {
   next();
 });
 
+// app.use(express.static(path.join(__dirname, 'public')))
+
 app.use('/', routes);
 
 
-app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/public'));
 app.get('/', function(request, response){
 	response.sendFile('/public/home.html', { root: '.' })
 });
 
 
+app.use(express.static('/images')); 
 
 app.get('/api/captions', function(req, res) {
 

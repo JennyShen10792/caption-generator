@@ -94,6 +94,12 @@ outputbutton { background:none; border:none; text-decoration: underline;}
 }
 */
 
+#rectangle{
+    width:200px;
+    height:100px;
+    background:blue;
+}
+
 #container {
 	display: block;
 	position: relative;
@@ -106,7 +112,7 @@ outputbutton { background:none; border:none; text-decoration: underline;}
 	justify-content: space-around;
 	align-items: center;
 
-	background-color: #f53cae;
+	background-color: #dd5a44;
 
 	width: 850px;
 	height: 70px;
@@ -117,7 +123,7 @@ outputbutton { background:none; border:none; text-decoration: underline;}
 }
 
 #header h1 {
-	color: rgb(227, 228, 250);
+	color: rgb(246, 246, 250);
 }
 
 #left-col {
@@ -138,7 +144,7 @@ outputbutton { background:none; border:none; text-decoration: underline;}
 }
 
 #links a {
-	color: rgb(227, 228, 250);
+	color: rgb(255, 255, 255);
 	letter-spacing: 0.2px;
 	font-size: 20px;
 	text-transform: lowercase;
@@ -592,8 +598,9 @@ select {
 
   .column {
 	float: left;
-	width: 33.33%;
-	padding: 5px;
+	width: 30%;
+	padding: 1px;
+	margin-left: 75px;
   }
   
   /* Clear floats after image containers */
