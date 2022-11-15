@@ -1,0 +1,173 @@
+{{#if user}}
+<h3> Logged in as {{user.username}}</h3>
+<head>
+		<title></title>
+		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
+		<link rel="stylesheet" href="stylesheets/style4.css" type="text/css" media="screen" title="no title"
+			charset="utf-8">
+	</head>
+
+	<body>
+		<div id="container">
+			<div id="header">
+				<div id="left-col">
+					<section class="logo-name">
+						<h1>Pop Culture Generator</h1>
+					</section>
+				</div>
+
+				<div id="right-col">
+					
+				</div>
+			</div>
+			<br>
+			<br>
+			<div id="content">
+				<h2>Generate a Caption from only One Word!</h2>
+				<br>
+				<div class="form-container">
+					<p>
+						Caption Type:
+						<select id="filterType" name="type" class="type">
+							<option value="">All</option>
+							<option value="movies">Movie Quotes</option>
+							<option value="songs">Song Lyrics</option>
+						</select>
+					</p>
+					<br>
+					<p>Keyword: <input type="text" id="filterWord" name="word" class="word" maxlength=""></p>
+					<br>
+					<br>
+					<button onclick="keyword_input()"  type="submit" value="Search" class="button-21" role="button">Search</button>
+					{{!-- <input onclick="keyword_input()" id="filterBtn" type="submit" value="Search"> --}}
+				</div>
+				<outputbutton class="anchor"onclick="doSomething()">{{caption}}</button>
+				<tbody>
+					<div id="messages"></div>
+					</tbody>
+			</div>
+		</div>
+		<script src="js/main.js"></script>
+	</body>
+{{else}}
+<head>
+		<title></title>
+		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
+		<link rel="stylesheet" href="stylesheets/style4.css" type="text/css" media="screen" title="no title"
+			charset="utf-8">
+	</head>
+
+	<body>
+		<div id="container">
+			<div id="header">
+				<div id="left-col">
+					<section class="logo-name">
+						<h1>Pop Culture Generator</h1>
+					</section>
+				</div>
+
+				<div id="right-col">
+					<div id="links">
+						<li><a href="/login">Login</a></li>
+						<li><a href="/register">Register</a></li>
+
+						<!-- <li><a href="login.html">Login</a></li>
+						<li><a href="register.html">Register</a></li> -->
+					</div>
+				</div>
+			</div>
+			<br>
+			<br>
+			<img src = "/images/logo2.jpeg" width="500" height="333" class = "center"></img>
+			<div id="content">
+				{{!-- <img src = "/images/logo2.jpeg" width="500" height="333" class = "center"></img> --}}
+				<h2>Generate a Caption from only One Word!</h2>
+				<br>
+				<div class="form-container">
+					<p style="font-size: x-large">
+						Caption Type:
+					</p>
+					<p>
+						{{!-- <select class="classic">
+							<option>CSS SELECT arrow (classic)</option>
+							<option>No external background image</option>
+							<option>No wrapper</option>
+						</select> --}}
+						
+						<select class="round">
+							<option value = "">All</option>
+							<option value = "movies">Movie Quotes</option>
+							<option value = "songs">Song Lyrics</option>
+						</select>
+						
+						{{!-- <select class="minimal">
+							<option>CSS SELECT arrow (minimal)</option>
+							<option>No external background image</option>
+							<option>No wrapper</option>
+						</select> --}}
+						{{!-- <select id="filterType" name="type" class="type">
+							<option value="">All</option>
+							<option value="movies">Movie Quotes</option>
+							<option value="songs">Song Lyrics</option>
+						</select> --}}
+						{{!-- <details class="custom-select">
+							<summary class="radios">
+								<input type="radio" name="item" id="All" title="All" checked>
+								<input type="radio" name="item" id="movie_quotes" title="Movie Quotes">
+								<input type="radio" name="item" id="song_lyrics" title="Song Lyrics">
+							</summary>
+							<ul class="list">
+								<li>
+									<label for="All">
+										All
+										<span></span>
+									</label>
+								</li>
+								<li>
+									<label for="movie_quotes">Movie Quotes</label>
+								</li>
+								<li>
+									<label for="song_lyrics">Song Lyrics</label>
+								</li>
+							</ul>
+						</details> --}}
+					</p>
+					<br>
+					<p style="font-size: x-large"> Keyword:
+					</p>
+					<p>
+					<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+						<div class="form__group">
+						<input type="text" class="form__input" id="name" placeholder="Keyword" required="" />
+						<label for="name" class="form__label">Keyword</label>
+						</div>
+					
+					<br>
+					<button onclick="keyword_input()"  type="submit" value="Search" class="button-21" role="button">Search</button>
+					{{!-- <input onclick="keyword_input()" id="filterBtn" type="submit" value="Search"> --}}
+				</div>
+				<br>
+				<br>
+
+				<div class="row">
+					<div class="column">
+						<img src = "../images/pic2.jpg" style="width:90%">
+					</div>
+					<div class="column">
+						<img src = "../images/pic3.jpg" style="width:90%">
+					</div>
+					<div class="column">
+						<img src = "../images/beach_insta1.jpg" style="width:90%">
+					</div>
+				</div>
+
+				{{!-- <img src = "../images/pic2.jpg" width="500" height="600"> <img src = "../images/pic3.jpg" width="500" height="600"> <img src = "../images/beach_insta1.jpg" width="500" height="600"> --}}
+				
+				<tbody>
+					<div id="messages"></div>
+					</tbody>
+			</div>
+		</div>
+		<script src="js/main.js"></script>
+	</body>
+{{/if}}
