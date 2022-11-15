@@ -66,7 +66,7 @@ function main() {
 	filterBtn.onclick = clickFilter;	
 	
 	var anchor = document.getElementById("anchor");
-	anchor.addEventListener('click', doSomething, false);
+	anchor.addEventListener('click', doSomething(), false);
 
 }
 
