@@ -1,7 +1,56 @@
-const request = require('request-promise');
-const cheerio = require('cheerio');
+require('./db');
+require('./auth');
+const passport = require('passport');
+const path = require('path');
+
+const routes = require('./routes/index');
+
 const express = require('express');
 const app = express();
+
+const cheerio = require('cheerio');
+
+const puppeteer = require('puppeteer');
+
+
+
+const session = require('express-session');
+const sessionOptions = {
+    secret: 'secret cookie thang (store this elsewhere!)',
+    resave: true,
+      saveUninitialized: true
+};
+app.use(session(sessionOptions));
+app.set('view engine', 'hbs');
+app.use(express.urlencoded({ extended: false }));
+
+const publicPath = path.resolve(__dirname, "public");
+app.use(express.static(publicPath));
+
+// app.use(express.static(path.join(__dirname, 'public')));
+
+// passport setup
+app.use(passport.initialize());
+app.use(passport.session());
+
+// make user data available to all templates
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
+
+app.use('/', routes);
+
+
+app.use(express.static(__dirname + '/public'));
+app.get('/', function(request, response){
+	response.sendFile('/public/home.html', { root: '.' })
+});
+
+const request = require('request-promise');
+//const cheerio = require('cheerio');
+//const express = require('express');
+//const app = express();
 
 app.use(express.static(__dirname + '/public'));
 app.get('/', function(request, response){
