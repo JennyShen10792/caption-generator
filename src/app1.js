@@ -140,9 +140,18 @@ app.get('/api/captions', function(req, res) {
 
 			$('#puns-list').each((index, element) => {
 				const captions = $(element).text();
-				puns_list.push({
+				let check1 = 0;
+				for (let i=0; i<=BAD_KEYWORDS.length; i++){
+					if (captions.includes(BAD_KEYWORDS[i])){
+						check1=1; 
+						break;
+					}
+				}
+				if (check1 == 0){
+					puns_list.push({
 					'captions': captions
-				})
+					})
+				}
 			});
 
      	 }  catch(err) {
@@ -191,9 +200,18 @@ app.get('/api/captions', function(req, res) {
 
 			$('.author-quote').each((index, element) => {
 				const captions = $(element).text();
-				people_list.push({
+				let check2 = 0;
+				for (let i=0; i<=BAD_KEYWORDS.length; i++){
+					if (captions.includes(BAD_KEYWORDS[i])){
+						check2=1; 
+						break;
+					}
+				}
+				if (check2 == 0){
+					people_list.push({
 					'captions': captions
-				})
+					})
+				}
 			});
 
      	 }  catch(err) {
@@ -230,9 +248,18 @@ app.get('/api/captions', function(req, res) {
 
 			$('[class=\"whole-read-more\"]').each((index, element) => {
 				const captions = $(element).text();
-				quotes_list.push({
+				let check3 = 0;
+				for (let i=0; i<=BAD_KEYWORDS.length; i++){
+					if (captions.includes(BAD_KEYWORDS[i])){
+						check3=1; 
+						break;
+					}
+				}
+				if (check3 == 0){
+					quotes_list.push({
 					'captions': captions
-				})
+					})
+				}
 			});
 
 
