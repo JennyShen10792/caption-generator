@@ -103,12 +103,41 @@ app.get('/api/captions', function(req, res) {
 						break;
 					}
 				}
-				if (check == 0){
+				let splitString = captions.split('\n');
+				const splitLines = splitString;
+				if (check == 0 && splitLines[0]==splitLines[1]){
+					lyrics_list.push({
+						'captions': splitLines[0]
+					})
+				}
+				else{
+					for (let i=0; i<=splitLines.length; i++){
+						if (check == 0 && (splitLines[i].toLowerCase().includes((req.query.type.toString()).toLowerCase()) || splitLines[i].toLowerCase().includes((req.query.type.toString()).toLowerCase()+","))){
+							lyrics_list.push({
+									'captions': splitLines.slice(0,i+1)
+									})
+							break;
+						}				
+					}
+				}
+				
+		/*		
+				if (check == 0 && (splitLines[0].toLowerCase().includes((req.query.type.toString()).toLowerCase()) || splitLines[0].toLowerCase().includes((req.query.type.toString()).toLowerCase()+","))){
+					lyrics_list.push({
+							'captions': splitLines[0]
+						})
+				}
+				else if (check == 0 && splitLines[0]==splitLines[1]){
+					lyrics_list.push({
+						'captions': splitLines[0]
+					})
+				}
+				else if (check == 0){
 					lyrics_list.push({
 					'captions': captions
 					})
 				}
-
+*/
 			});
 
      	 }  catch(err) {

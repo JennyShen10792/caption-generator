@@ -2,8 +2,8 @@ const express = require('express'),
   router = express.Router(),
   passport = require('passport'),
   mongoose = require('mongoose'),
-  User = mongoose.model('User');
-
+  User = mongoose.model('User'),
+Caption = mongoose.model('Caption');
 
 router.get('/logout', function (req, res) {
   req.logout(function (err) {
@@ -25,7 +25,24 @@ router.get('/register', (req, res) => {
   res.render('register');
 });
 router.get('/captions', (req, res) => {
-  res.render('captions');
+  	User.find(function(err, captions, count) {
+		res.render( 'captions', {
+			captions: captions
+		});
+	});
+})
+router.get('/captions/save', function(req, res) {
+  res.render('save');
+});
+
+router.post('/captions/save', function(req, res) {
+	console.log(req.body.captionName);
+	new Caption({
+		user:User,
+		name: req.body.captionName
+	}).save(function(err, caption, count){
+		res.redirect('/captions');
+	});
 });
 router.post('/register', (req, res) => {
   const { username, password } = req.body;
