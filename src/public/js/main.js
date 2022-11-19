@@ -6,57 +6,15 @@ function displayRecord(record) {
 
 }   
 
-function addCaption(element) {
-	const tbody = document.querySelector("tbody");
-	const tr = document.createElement("tr");
-	tbody.appendChild(tr);
-	
-	const caption = document.createElement("td");
-	tr.appendChild(caption);  
-	caption.innerText = element.caption;
-}
-function doSomething(event) {
+function doSomething() {
 	if (confirm('Are you sure you want to save this caption?')) {
   // Save it!
-  
- // event.preventDefault();
-	
-	
-	let caption = document.getElementById("messages").value;
-	
-	let data = {
-		"caption": messages,
-	}
-	
-	fetch('http://localhost:3000/captions', {
-	  method: 'POST',  
-	  headers: {
-		'Content-Type': 'application/json',
-	  },
-	  body: JSON.stringify(data)
-	})
-	.then(response => response.json())
-	.then(data => {
-	  	console.log('Success:', data);
-	  	
-	  	addCaption(data)
-	})
-	.catch((error) => {
-	  	console.error('Error:', error);
-	});
-
-  
-  
-  
  	 	alert('Caption was saved!');
 	} else {
   // Do nothing!
   		alert('Caption was not saved.');
 	}
 }
-
-
-
 
 function displayMessages() {
 
