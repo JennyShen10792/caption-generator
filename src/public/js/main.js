@@ -2,7 +2,7 @@ function displayRecord(record) {
 	const contentEle = document.getElementById("messages");
 	const div = document.createElement("div");
 	div.innerText = record["captions"];
-	contentEle.appendChild(div).setAttribute('onclick', 'doSomething');
+	contentEle.appendChild(div).setAttribute('onclick', 'doSomething()');
 
 }
 
