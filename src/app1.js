@@ -56,7 +56,16 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(request, response){
 	response.sendFile('/public/home.html', { root: '.' })
 });
-
+function removeDuplicates(arr) {
+	return arr.filter((item,
+		index) => arr.indexOf(item) === index);
+};
+function uniq(a) {
+    var seen = {};
+    return a.filter(function(item) {
+        return seen.hasOwnProperty(item) ? false : (seen[item] = true);
+    });
+};
 app.get('/api/captions', function(req, res) {
 
 	console.log(req.query.type);
@@ -105,14 +114,22 @@ app.get('/api/captions', function(req, res) {
 				}
 				let splitString = captions.split('\n');
 				const splitLines = splitString;
-				if (check == 0 && splitLines[0]==splitLines[1]){
+				if (splitLines.length == 1){
+					lyrics_list.push({
+						'captions': splitLines[0]
+					})
+				}
+				else if (check == 0 && splitLines[0]==splitLines[1]){
 					lyrics_list.push({
 						'captions': splitLines[0]
 					})
 				}
 				else{
-					for (let i=0; i<=splitLines.length; i++){
-						if (check == 0 && (splitLines[i].toLowerCase().includes((req.query.type.toString()).toLowerCase()) || splitLines[i].toLowerCase().includes((req.query.type.toString()).toLowerCase()+","))){
+					for (let i=0; i<splitLines.length; i++){
+
+						//if(check == 0 && (splitLines[i].includes(req.query.type.toString())) || (splitLines[i].includes(req.query.type+","))){
+
+						if (check == 0 && ((splitLines[i].toString()).toLowerCase().includes((req.query.type.toString()).toLowerCase()) || (splitLines[i].toString()).toLowerCase().includes((req.query.type.toString()).toLowerCase()+", "))){
 							lyrics_list.push({
 									'captions': splitLines.slice(0,i+1)
 									})
@@ -143,10 +160,11 @@ app.get('/api/captions', function(req, res) {
      	 }  catch(err) {
           		console.log(err);
       	 }
-
-      
-      console.log(lyrics_list)
-      res.send(lyrics_list);	
+      	 
+	let new_lyrics_list = [...new Set(lyrics_list)];
+     // new_lyrics_list = uniq(lyrics_list)
+      console.log(new_lyrics_list)
+      res.send(new_lyrics_list);	
 	  })();
 		}
 
