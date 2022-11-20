@@ -113,7 +113,7 @@ app.get('/api/captions', function(req, res) {
 					}
 				}
 				let splitString = captions.split('\n');
-				const splitLines = splitString;
+				const splitLines = splitString.filter(n => n);
 				if (splitLines.length == 1){
 					lyrics_list.push({
 						'captions': splitLines[0]
