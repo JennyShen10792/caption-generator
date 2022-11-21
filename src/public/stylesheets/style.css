@@ -9,16 +9,8 @@ body {
 	color: #050311;
 }
 
-#messages {
-	display: block;
-	width: 50%;
-	margin: 30px auto 0 auto;
-	text-align: center;
-}
-
 #messages div {
-	width: 40%;
-	margin: 30px auto 0 auto;
+	margin-top: 30px;
 	text-align: center;
 }
 
