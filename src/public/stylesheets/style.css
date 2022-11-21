@@ -9,11 +9,24 @@ body {
 	color: #050311;
 }
 
-#messages div {
-	margin-top: 30px;
+#messages {
+	display: block;
+	width: 50%;
+	margin: 30px auto 0 auto;
 	text-align: center;
 }
-outputbutton { background:none; border:none; text-decoration: underline;}
+
+#messages div {
+	width: 40%;
+	margin: 30px auto 0 auto;
+	text-align: center;
+}
+
+outputbutton {
+	background: none;
+	border: none;
+	text-decoration: underline;
+}
 
 /*
 #container {
