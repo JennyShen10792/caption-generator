@@ -2,17 +2,17 @@ function displayRecord(record) {
 	const contentEle = document.getElementById("messages");
 	const div = document.createElement("div");
 	div.innerText = record["captions"];
-	contentEle.appendChild(div);
+	contentEle.appendChild(div).setAttribute('onclick', 'doSomething()');
 
-}   
+}
 
 function doSomething() {
 	if (confirm('Are you sure you want to save this caption?')) {
-  // Save it!
- 	 	alert('Caption was saved!');
+		// Save it!
+		alert('Caption was saved!');
 	} else {
-  // Do nothing!
-  		alert('Caption was not saved.');
+		// Do nothing!
+		alert('Caption was not saved.');
 	}
 }
 
@@ -39,32 +39,32 @@ function displayMessages() {
 	}
 
 	const contentEle = document.getElementById("messages");
-    while (contentEle.firstChild) {
-        contentEle.removeChild(contentEle.firstChild);
-    }
+	while (contentEle.firstChild) {
+		contentEle.removeChild(contentEle.firstChild);
+	}
 	fetch(url)
-  	.then(response => response.json())
-	.then(data => {
-		{
-			data.forEach(record => displayRecord(record))
-		}	
-	})
-	.catch((error) => {
-	  	console.error('Error:', error);
-	});
+		.then(response => response.json())
+		.then(data => {
+			{
+				data.forEach(record => displayRecord(record))
+			}
+		})
+		.catch((error) => {
+			console.error('Error:', error);
+		});
 }
 
 function clickFilter(evt) {
 	evt.preventDefault();
-	
+
 	displayMessages();
 }
 
 function main() {
 
-	const filterBtn = document.getElementById("filterBtn"); 
-	filterBtn.onclick = clickFilter;	
-	
+	const filterBtn = document.getElementById("filterBtn");
+	filterBtn.onclick = clickFilter;
+
 	var anchor = document.getElementById("anchor");
 	anchor.addEventListener('click', doSomething(), false);
 
