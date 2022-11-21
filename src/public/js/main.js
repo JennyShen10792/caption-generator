@@ -68,6 +68,9 @@ function main() {
 	var anchor = document.getElementById("anchor");
 	anchor.addEventListener('click', doSomething(), false);
 
+	// var messages = document.getElementById("messages");
+	// messages.addEventListener('click', doSomething(), false);
+
 }
 
 document.addEventListener("DOMContentLoaded", main);
