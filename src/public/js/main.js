@@ -3,6 +3,7 @@ function displayRecord(record) {
 	const div = document.createElement("div");
 	div.innerText = record["captions"];
 	contentEle.appendChild(div).setAttribute('onclick', 'doSomething()');
+	// contentEle.appendChild(div)
 
 }
 
