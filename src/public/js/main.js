@@ -1,3 +1,6 @@
+const mongoose = require('mongoose')
+const User = mongoose.model('User');
+
 function displayRecord(record) {
 	const contentEle = document.getElementById("messages");
 	const div = document.createElement("div");
@@ -10,10 +13,8 @@ function displayRecord(record) {
 function doSomething() {
 	if (confirm('Are you sure you want to save this caption?')) {
 		// Save it!
-		alert('Caption was saved!');
 	} else {
 		// Do nothing!
-		alert('Caption was not saved.');
 	}
 }
 
@@ -67,7 +68,36 @@ function main() {
 	filterBtn.onclick = clickFilter;
 
 	var anchor = document.getElementById("anchor");
-	anchor.addEventListener('click', doSomething(), false);
+	anchor.addEventListener('click', function (e) {
+		console.log('button was clicked');
+
+		fetch('/clicked', { method: 'POST' })
+			.then(function (response) {
+				if (confirm('Are you sure you want to save this caption?')) {
+					console.log('click was recorded');
+					return;
+				}
+				throw new Error('Request failed.');
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	});
+
+	setInterval(function () {
+		fetch('/clicks', { method: 'GET' })
+			.then(function (response) {
+				if (response.ok)
+					return response.json();
+				throw new Error('Request failed.');
+			})
+			.then(function () {
+
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	});
 
 	// var messages = document.getElementById("messages");
 	// messages.addEventListener('click', doSomething(), false);
