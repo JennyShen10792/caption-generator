@@ -1,0 +1,168 @@
+{{#if user}}
+	{{!-- <h3> Logged in as {{user.username}}</h3> --}}
+
+	<head>
+		<title></title>
+		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
+		<link rel="stylesheet" href="stylesheets/style4.css" type="text/css" media="screen" title="no title"
+			charset="utf-8">
+	</head>
+
+	<body>
+		<div id="container">
+			<div id="header">
+				<div id="left-col">
+					<section class="logo-name">
+						<h1>Pop Culture Generator</h1>
+					</section>
+				</div>
+
+				<div id="right-col">
+					<div id="links">
+						<li><a href="/captions">Save Captions</a></li>
+						<li><a href="/logout">Logout</a></li>
+
+						<!-- <li><a href="login.html">Login</a></li>
+						<li><a href="register.html">Register</a></li> -->
+					</div>
+				</div>
+			</div>
+			<div id="content">
+				<div class="main">
+					<div class="form-container">
+						<img src="/images/logo.png" width="500" height="333" class="center"></img>
+						<div class="form-title">
+							<h1>Pop Culture Generator</h1>
+							<h3> Logged in as {{user.username}}</h3>
+						</div>
+						<p style="font-size: x-large">
+							Caption Type:
+						</p>
+						</p>
+							<select id="filterType" name="type" class="round">
+								<option value = "">All</option>
+								<option value = "movies">Movie Quotes</option>
+								<option value = "songs">Song Lyrics</option>
+								<option value="puns">Puns</option>
+								<option value="people">Famous Quotes</option>
+							</select>
+						</p>
+						<p style="font-size: x-large"> Keyword:
+						</p>
+						<p>
+							<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+							<div class="form__group">
+								<input type="text" class="form__input" id="filterWord" placeholder="Keyword" required="" />
+							</div>
+					
+							<br>
+							{{!-- <button onclick="keyword_input()" id = "filterBtn" type="submit" value="Search" class="button-21" role="button">Search</button> --}}
+							{{!-- <input onclick="keyword_input()" id="filterBtn" type="submit" value="Search"> --}}
+							<button onclick="keyword_input()" id = "filterBtn" type="submit" value="Search" class="button-21" role="button">Search</button>
+						</p>
+					</div>
+
+					<br>
+					<br>
+					
+					<div class="row">
+						<div class="column">
+							<img src = "../images/pic2.jpg" style="width:90%">
+						</div>
+						<div class="column">
+							<img src = "../images/pic5.jpg" style="width:90%">
+						</div>
+						<div class="column">
+							<img src = "../images/beach_insta1.jpg" style="width:90%">
+						</div>
+					</div>
+				</div>
+				<div id="messages"></div>
+			</div>
+		</div>
+		<script src="js/main-backup.js"></script>
+	</body>
+{{else}}
+
+	<head>
+		<title></title>
+		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
+		<link rel="stylesheet" href="stylesheets/style4.css" type="text/css" media="screen" title="no title"
+			charset="utf-8">
+	</head>
+
+	<body>
+		<div id="container">
+			<div id="header">
+				<div id="left-col">
+					<section class="logo-name">
+						<h1>Pop Culture Generator</h1>
+					</section>
+				</div>
+
+				<div id="right-col">
+					<div id="links">
+						<li><a href="/login">Login</a></li>
+						<li><a href="/register">Register</a></li>
+
+						<!-- <li><a href="login.html">Login</a></li>
+						<li><a href="register.html">Register</a></li> -->
+					</div>
+				</div>
+			</div>
+			<br>
+			<br>
+			<img src="/images/logo.png" width="500" height="333" class="center"></img>
+			<div id="content">
+				<div class="main">
+					<div class="form-container">
+						<div class="form-title">
+							<h1>Pop Culture Generator</h1>
+						</div>
+						<p style="font-size: x-large">
+							Caption Type:
+						</p>
+						</p>
+							<select id="filterType" name="type" class="round">
+								<option value = "">All</option>
+								<option value = "movies">Movie Quotes</option>
+								<option value = "songs">Song Lyrics</option>
+								<option value="puns">Puns</option>
+								<option value="people">Famous Quotes</option>
+							</select>
+						</p>
+						{{!-- <p>Keyword: <input type="text" id="filterWord" name="word" class="word" maxlength=""></p>
+						<input onclick="keyword_input()" id="filterBtn" type="submit" value="Search"> --}}
+						<p style="font-size: x-large"> Keyword:
+						</p>
+						<p>
+							<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+							<div class="form__group">
+								<input type="text" class="form__input" id="filterWord" placeholder="Keyword" required="" />
+							</div>
+					
+							<br>
+							<button onclick="keyword_input()" id = "filterBtn" type="submit" value="Search" class="button-21" role="button">Search</button>
+							{{!-- <input onclick="keyword_input()" id="filterBtn" type="submit" value="Search"> --}}
+
+						</p>
+					</div>
+
+					<div class="row">
+						<div class="column">
+							<img src = "../images/pic2.jpg" style="width:90%">
+						</div>
+						<div class="column">
+							<img src = "../images/pic5.jpg" style="width:90%">
+						</div>
+						<div class="column">
+							<img src = "../images/beach_insta1.jpg" style="width:90%">
+						</div>
+					</div>
+				</div>
+				<div id="messages"></div>
+			</div>
+		</div>
+		<script src="js/main1.js"></script>
+	</body>
+{{/if}}
