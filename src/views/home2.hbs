@@ -37,6 +37,8 @@
 							<option value="">All</option>
 							<option value="movies">Movie Quotes</option>
 							<option value="songs">Song Lyrics</option>
+							<option value="puns">Puns</option>
+							<option value="people">Famous Quotes</option>
 						</select>
 					</p>
 					<br>
@@ -98,10 +100,12 @@
 							<option>No wrapper</option>
 						</select> --}}
 						
-						<select class="round">
+						<select id="filterType" name="type" class="round">
 							<option value = "">All</option>
 							<option value = "movies">Movie Quotes</option>
 							<option value = "songs">Song Lyrics</option>
+							<option value="puns">Puns</option>
+							<option value="people">Famous Quotes</option>
 						</select>
 						
 						{{!-- <select class="minimal">
@@ -135,6 +139,9 @@
 								</li>
 							</ul>
 						</details> --}}
+							{{!-- <option value="puns">Puns</option>
+							<option value="people">Famous Quotes</option>
+						</select> --}}
 					</p>
 					<br>
 					<p style="font-size: x-large"> Keyword:
@@ -143,17 +150,17 @@
 					<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 						<div class="form__group">
 						<input type="text" class="form__input" id="name" placeholder="Keyword" required="" />
-						<label for="name" class="form__label">Keyword</label>
+						{{!-- <label for="name" class="form__label">Keyword</label> --}}
 						</div>
 					
 					<br>
-					<button onclick="keyword_input()"  type="submit" value="Search" class="button-21" role="button">Search</button>
-					{{!-- <input onclick="keyword_input()" id="filterBtn" type="submit" value="Search"> --}}
+					{{!-- <button onclick="keyword_input()" id = "filterBtn" type="submit" value="Search" class="button-21" role="button">Search</button> --}}
+					<input onclick="keyword_input()" id="filterBtn" type="submit" value="Search">
 				</div>
 				<br>
 				<br>
 
-				<div class="row">
+				{{!-- <div class="row">
 					<div class="column">
 						<img src = "../images/pic2.jpg" style="width:90%">
 					</div>
@@ -163,7 +170,7 @@
 					<div class="column">
 						<img src = "../images/beach_insta1.jpg" style="width:90%">
 					</div>
-				</div>
+				</div> --}}
 
 				{{!-- <img src = "../images/pic2.jpg" width="500" height="600"> <img src = "../images/pic3.jpg" width="500" height="600"> <img src = "../images/beach_insta1.jpg" width="500" height="600"> --}}
 				
