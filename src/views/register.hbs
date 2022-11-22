@@ -1,6 +1,34 @@
-<form method="POST" action="">
+{{!-- <form method="POST" action="">
 	<div class='form-row'><label>Username:</label> <input name="username" type="text"></div>
 	<div class='form-row'><label>Password:</label> <input name="password" type="password"></div>
 	<div class='form-row'><input type="submit" value="Register"></div>
 	<div class='form-row'>Already have an account? <a href="/login">Login</a>.</div>
-</form>
+</form> --}}
+
+
+<head>
+	<link rel="stylesheet" href="stylesheets/register.css">
+	<title> Register </title>
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
+</head>
+
+<body>
+	<div class="login-page">
+		<div class="form">
+
+			<div class="login">
+				<div class="login-header">
+					<h3>REGISTER</h3>
+					<p>Please enter your credentials to register.</p>
+				</div>
+			</div>
+
+			<form class="login-form" method="POST" action="">
+				<input name="username" type="text" placeholder="username">
+				<input name="password" type="password" placeholder="password">
+				<input id="button" type="submit" value="Register">
+				<p class="message">Already have an account? <a href="/login">Login</a></p>
+			</form>
+		</div>
+	</div>
+</body>

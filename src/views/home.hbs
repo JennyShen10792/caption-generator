@@ -1,5 +1,5 @@
 {{#if user}}
-	<h3> Logged in as {{user.username}}</h3>
+	{{!-- <h3> Logged in as {{user.username}}</h3> --}}
 
 	<head>
 		<title></title>
@@ -19,34 +19,39 @@
 
 				<div id="right-col">
 					<div id="links">
-						<li><a href="/captions">Saved Captions</a></li>
+						<li><a href="/captions">Save Captions</a></li>
 						<li><a href="/logout">Logout</a></li>
+
 						<!-- <li><a href="login.html">Login</a></li>
 						<li><a href="register.html">Register</a></li> -->
 					</div>
 				</div>
 			</div>
 			<div id="content">
-				<h2>Generate a Caption from only One Word!</h2>
-				<div class="form-container">
-					<p>
-						Caption Type:
-						<select id="filterType" name="type" class="type">
-							<option value="">All</option>
-							<option value="movies">Movie Quotes</option>
-							<option value="songs">Song Lyrics</option>
-							<option value="puns">Puns</option>
-							<option value="people">Famous Quotes</option>
-						</select>
-					</p>
-					<p>Keyword: <input type="text" id="filterWord" name="word" class="word" maxlength=""></p>
-					<input onclick="keyword_input()" id="filterBtn" type="submit" value="Search">
+				<div class="main">
+					<div class="form-container">
+						<div class="form-title">
+							<h1>Pop Culture Generator</h1>
+							<h3> Logged in as {{user.username}}</h3>
+						</div>
+						<p>
+							Caption Type:
+							<select id="filterType" name="type" class="type">
+								<option value="">All</option>
+								<option value="movies">Movie Quotes</option>
+								<option value="songs">Song Lyrics</option>
+								<option value="puns">Puns</option>
+								<option value="people">Famous Quotes</option>
+							</select>
+						</p>
+						<p>Keyword: <input type="text" id="filterWord" name="word" class="word" maxlength=""></p>
+						<input onclick="keyword_input()" id="filterBtn" type="submit" value="Search">
+					</div>
 				</div>
-				<outputbutton id="anchor" onclick="doSomething">{{captions}}</button>
-					<div id="messages"></div>
+				<div id="messages"></div>
 			</div>
 		</div>
-		<script src="js/main.js"></script>
+		<script src="js/main-backup.js"></script>
 	</body>
 {{else}}
 
@@ -77,27 +82,28 @@
 				</div>
 			</div>
 			<div id="content">
-				<h2>Generate a Caption from only One Word!</h2>
-				<div class="form-container">
-					<p>
-						Caption Type:
-						<select id="filterType" name="type" class="type">
-							<option value="">All</option>
-							<option value="movies">Movie Quotes</option>
-							<option value="songs">Song Lyrics</option>
-							<option value="puns">Puns</option>
-							<option value="people">Famous Quotes</option>
-						</select>
-					</p>
-					<p>Keyword: <input type="text" id="filterWord" name="word" class="word" maxlength=""></p>
-					<input onclick="keyword_input()" id="filterBtn" type="submit" value="Search">
+				<div class="main">
+					<div class="form-container">
+						<div class="form-title">
+							<h1>Pop Culture Generator</h1>
+						</div>
+						<p>
+							Caption Type:
+							<select id="filterType" name="type" class="type">
+								<option value="">All</option>
+								<option value="movies">Movie Quotes</option>
+								<option value="songs">Song Lyrics</option>
+								<option value="puns">Puns</option>
+								<option value="people">Famous Quotes</option>
+							</select>
+						</p>
+						<p>Keyword: <input type="text" id="filterWord" name="word" class="word" maxlength=""></p>
+						<input onclick="keyword_input()" id="filterBtn" type="submit" value="Search">
+					</div>
 				</div>
-
-				<tbody>
-					<div id="messages"></div>
-				</tbody>
+				<div id="messages"></div>
 			</div>
 		</div>
-		<script src="js/main.js"></script>
+		<script src="js/main1.js"></script>
 	</body>
 {{/if}}
