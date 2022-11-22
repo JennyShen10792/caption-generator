@@ -1,7 +1,10 @@
-body {
-	margin: 0;
+* {
 	padding: 0;
-	font-family: 'Marker Felt', fantasy;
+	margin: 0;
+}
+
+body {
+	font-family: Fira Sans Extra, sans;
 	box-sizing: content-box;
 	background-color: #E3E4FA;
 	letter-spacing: 0.05em;
@@ -11,139 +14,70 @@ body {
 
 #messages {
 	display: block;
-	width: 50%;
+	width: 90%;
 	margin: 30px auto 0 auto;
 	text-align: center;
 }
 
 #messages div {
-	width: 40%;
+	width: 90%;
 	margin: 30px auto 0 auto;
 	text-align: center;
 }
 
-outputbutton {
+/* outputbutton {
 	background: none;
 	border: none;
 	text-decoration: underline;
-}
-
-/*
-#container {
-	display: grid;
-	WAT?
-	width: 100%;
-	height: 100vh;
-	grid-template-columns: 10em auto;
-	grid-template-rows: 5em auto;
-	grid-template-areas:
-			"hd  hd"
-			"sd  bd"
-}
-
-#container > header, #container > nav, th {
-	color: #E3E4FA;
-}
-
-#container > header {
-	grid-area: hd;
-	align-self: stretch;
-	text-align: center;
-	align-content: stretch;
-	background-color: #302836; 
-}
-
-#container > nav {
-	grid-area: sd;
-	background-color: #274156;
-	display: relative;
-}
-
-#container > div#content {
-	grid-area: bd;
-}
-
-
-#container > header > h1 {
-	font-size: 2.5em;
-	text-transform: uppercase;
-	margin: 0px;
-	padding: 15px;
-}
-
-#container > header > h1 > span {
-	color: #1C6E8C;
-}
-
-#container nav ul {
-	list-style-type: none;
-	margin: 0.5em 0em 0em 0em;
-	padding: 0em;
-}
-
-#container nav ul li a {
-	display: flex;
-	align-items: center;
-	padding: 0.5em 0.5em 0.5em 0.5em;
-	font-size: 1.4em;
-	text-transform: uppercase;
-	text-decoration: none;
-	vertical-align: center;
-}
-
-#container nav ul li a:visited {
-	color: #E3E4FA;
-}
-
-#container nav ul li a:hover {
-	background-color: #1C6E8C;
-}
-
-#container nav .about-session {
-	padding: 1em;
-	position: absolute;
-	bottom: 0px;
-	width: 10em;
-}
-*/
+} */
 
 #container {
 	display: block;
 	position: relative;
 	width: 100%;
 	max-width: 100%;
+
 }
 
 #header {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 
-	background-color: #274156;
+	/* background-color: #274156; */
+	color: black;
 
-	width: 850px;
-	height: 70px;
-	margin: 10px auto 10px auto;
+	/* width: 850px;
+	height: 70px; */
+	width: 100%;
+	height: 10%;
+	/* margin: 10px auto 10px auto; */
 
-	border-radius: 10px;
+	/* border-radius: 10px; */
 
 }
 
 #header h1 {
-	color: rgb(227, 228, 250);
+	/* color: rgb(227, 228, 250); */
+	/* color: black; */
 }
 
 #left-col {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	width: 35%;
+}
+
+#right-col {
+	width: 35%;
 }
 
 #right-col #links {
 	display: flex;
 	vertical-align: middle;
 	justify-content: space-around;
-	width: 300px;
+	/* width: 300px; */
 }
 
 #links li {
@@ -151,19 +85,10 @@ outputbutton {
 }
 
 #links a {
-	color: rgb(227, 228, 250);
+	/* color: rgb(227, 228, 250); */
+	color: black;
 	letter-spacing: 0.2px;
 	font-size: 20px;
-	text-transform: lowercase;
-}
-
-form {
-	display: block;
-}
-
-.form-container {
-	text-align: center;
-	margin: auto;
 }
 
 h2 {
@@ -171,77 +96,159 @@ h2 {
 	text-align: center;
 }
 
+#content .pic1 {
+	width: 25%;
+	height: 90%;
+	/* margin-left: -80px; */
+}
+
+.pic1 img {
+	width: 20%;
+	height: 30%;
+}
+
+#content .pic2 {
+	width: 25%;
+	height: 90%;
+	/* margin-right: -80px; */
+}
+
+.pic2 img {
+	width: 20%;
+	/* height: 30%; */
+}
+
+#content {
+	width: 100%;
+	height: 90%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	/* padding: 80px 32px 3px 32px; */
+	padding-bottom: 20px;
+}
+
+#content .main {
+	width: 50%;
+	height: 600px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+#content h1 {
+	/* font-size: 50px; */
+	/* width: 100%; */
+	/* height: 200px; */
+	display: flex;
+	justify-content: center;
+	font-size: 60px;
+	line-height: 64px;
+	font-weight: 600;
+	text-align: center;
+}
+
+.form-container {
+	text-align: center;
+	margin: auto;
+}
+
 .form-container form>p {
 	display: inline-block;
 	padding: 0em 0.5em 0em 0.5em;
 }
 
-form#create-form>div {
-	text-align: left;
-	padding: 5px;
+.form-title {
+	height: 200px;
 }
 
-form#create-form label {
+/* .list-choice {
+	width: 300px;
+	margin: 1em auto;
+	position: relative;
+	cursor: pointer;
+}
+
+.list-choice input[type="radio"] {
+	position: absolute;
+	left: -9999px;
+}
+
+.list-choice-title {
+	width: 100%;
 	display: block;
-}
-
-form#create input {
-	width: 8em;
-}
-
-form#create p {
-	margin-top: 0px;
-	margin-bottom: 0px;
-}
-
-form#create {
-	margin-bottom: 0px;
-	padding-bottom: 0px;
-}
-
-#container form .year {
-	width: 5em;
-}
-
-/* table styles */
-table {
-	border-collapse: collapse;
-	margin: auto;
-}
-
-td,
-th {
-	text-align: left;
-	padding: 5px;
-}
-
-/* color every other row */
-tr:nth-child(2n) {
-	background-color: #eee;
-}
-
-td {
-	border: 1px solid #A09CA0;
-}
-
-th {
-	font-weight: bold;
-	background-color: #274156;
-	color: #fff;
-}
-
-#bd {
+	background: #D8D8D8;
 	text-align: center;
+	padding: 0.55em 1em;
+	box-sizing: border-box;
+	color: #FFF;
+	text-shadow: 0 1px 0 #CACACA;
+	border-radius: 0.2em;
 }
 
-footer {
-	margin: 15px;
+.list-choice:hover .list-choice-title {
+	border-radius: 0.2em 0.2em 0 0;
 }
 
-.highlight {
-	background-color: #ffff88;
+.list-choice-objects label:nth-last-of-type(1) span {
+	border-radius: 0 0 0.2em 0.2em;
 }
 
-.form-container form #addBtn {
-	width: auto;
+.list-choice input[type="radio"]+span {
+	color: #FFF;
+	background: #D8D8D8;
+	padding: 0.55em 1em;
+	display: block;
+	text-align: center;
+	box-sizing: border-box;
+	cursor: pointer;
+	width: 100%;
 }
+
+.list-choice-objects {
+	position: absolute;
+	top: 0;
+	padding-top: 2.1em;
+	box-sizing: border-box;
+	width: 100%;
+	overflow: hidden;
+	max-height: 0;
+	transition: all 250ms ease;
+}
+
+.list-choice:hover .list-choice-objects input[type="radio"]+span {
+	position: relative;
+	top: 0;
+	transition: all 250ms ease-in-out;
+}
+
+.list-choice:hover input[type="radio"]+span:hover {
+	background: #BBB;
+}
+
+.list-choice:hover input[type="radio"]:checked+span:hover {
+	background: #74D68E;
+}
+
+.list-choice input[type="radio"]:checked+span {
+	background: #74D68E;
+	position: absolute;
+	top: 0em;
+	border-radius: 0.2em;
+}
+
+.list-choice:hover input[type="radio"]:checked+span {
+	border-radius: 0;
+}
+
+.list-choice:hover .list-choice-objects label:nth-last-of-type(1) input[type="radio"]:checked+span {
+	border-radius: 0 0 0.2em 0.2em;
+}
+
+.list-choice:hover .list-choice-objects {
+	max-height: 540px;
+} */
