@@ -5,10 +5,16 @@ function displayRecord(record) {
     contentEle.appendChild(div);
 }
 
-function doSomething() {
+function doSomething(event) {
     if (confirm('Are you sure you want to save this caption?')) {
         // Save it!
         alert('Caption was saved!');
+        
+        var source = event.target || event.srcElement;
+        console.log(source);
+        console.log(source.innerText);
+        
+        
     } else {
         // Do nothing!
         alert('Caption was not saved.');
