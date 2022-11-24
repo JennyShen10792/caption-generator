@@ -6,6 +6,9 @@ const passport = require('passport');
 const path = require('path');
 
 const routes = require('./routes/index');
+//const captions = require('./routes/captions');
+
+
 
 const express = require('express');
 const app = express();
@@ -359,21 +362,10 @@ app.post('/api/caption/save', (req, res) => {
 
 
 
-
-
-
-
-// get the click data from the database
-app.get('/captions', (req, res) => {
-	db.collection('clicks').find().toArray((err, result) => {
-		if (err) return console.log(err);
-		res.send(result);
-	});
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
 });
-
-
-
-
 
 
 

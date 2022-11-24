@@ -12,7 +12,7 @@ function displayRecord(record) {
 function saveCaption(ele) {
     if (confirm('Are you sure you want to save this caption?')) {
         // Save it!
-        alert(event);
+      //  alert(event);
       //  var source = event.srcElement || event.target;
         var caption = ele.innerText;
  
