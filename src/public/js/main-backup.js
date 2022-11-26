@@ -2,13 +2,40 @@ function displayRecord(record) {
     const contentEle = document.getElementById("messages");
     const div = document.createElement("div");
     div.innerText = record["captions"];
-    contentEle.appendChild(div).setAttribute('onclick', 'doSomething()');
+    //setAttribute('onclick', 'saveCaption');
+    div.setAttribute('onclick', 'saveCaption(this)');
+    //contentEle.onClick=saveCaption;
+    contentEle.appendChild(div);
+    
 }
 
-function doSomething() {
+function saveCaption(ele) {
     if (confirm('Are you sure you want to save this caption?')) {
         // Save it!
-        alert('Caption was saved!');
+      //  alert(event);
+      //  var source = event.srcElement || event.target;
+        var caption = ele.innerText;
+ 
+        let data = {
+            "caption": caption
+        }
+        console.log(data);
+        fetch('http://localhost:3000/api/caption/save', {
+            method: 'POST',  
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+                console.log('Success:', data);
+                alert('Caption was saved!');
+        })
+        .catch((error) => {
+                console.error('Error:', error);
+        });        
+
     } else {
         // Do nothing!
         alert('Caption was not saved.');
@@ -64,8 +91,8 @@ function main() {
     const filterBtn = document.getElementById("filterBtn");
     filterBtn.onclick = clickFilter;
 
-    var anchor = document.getElementById("anchor");
-    anchor.addEventListener('click', doSomething(), false);
+    //var anchor = document.getElementById("anchor");
+   // anchor.addEventListener('click', doSomething(), false);
 
     // var messages = document.getElementById("messages");
     // messages.addEventListener('click', doSomething(), false);

@@ -1,9 +1,14 @@
 require('./db');
+const mongoose = require('mongoose');
+
 require('./auth');
 const passport = require('passport');
 const path = require('path');
 
 const routes = require('./routes/index');
+//const captions = require('./routes/captions');
+
+
 
 const express = require('express');
 const app = express();
@@ -27,9 +32,10 @@ const sessionOptions = {
 app.use(session(sessionOptions));
 app.set('view engine', 'hbs');
 app.use(express.urlencoded({ extended: false }));
-
+app.use(express.json());
 const publicPath = path.resolve(__dirname, "public");
 app.use(express.static(publicPath));
+
 
 // app.use(express.static(path.join(__dirname, 'public')));
 
@@ -57,6 +63,9 @@ const request = require('request-promise');
 //const app = express();
 
 app.use(express.static(__dirname + '/public'));
+
+const Caption = mongoose.model('Caption');
+
 app.get('/', function (request, response) {
 	response.sendFile('/public/home.html', { root: '.' })
 });
@@ -326,31 +335,37 @@ MongoClient.connect(url, { useNewUrlParser: true }, (err, database) => {
 })
 
 // save to collab
-app.post('/clicked', (req, res) => {
-	// not sure how to get 'captions' array 
-	const userCaps = { captions: [] };
-	console.log(db);
 
-	db.collection('collab').save(userCaps, (err, result) => {
-		if (err) {
-			return console.log(err);
-		}
-		console.log('caption added to db');
-		res.sendStatus(201);
+
+app.post('/api/caption/save', (req, res) => {
+  	// TODO: create new review... if save succeeds, send back JSON
+  	// representation of saved object
+  	console.log(req.body);
+  	console.log("req.body.caption: ", req.body.caption);
+  	
+  	let json = req.body;
+  	
+  	let caption = Caption();
+  	caption.name = json.caption;
+	caption.user = req.user._id;
+	console.log(caption);
+	caption.save(function(err, saved, count) {
+		console.log(err);
+		console.log(saved);
+		console.log(count);
+		res.send(saved);
 	});
+	
+  	
 });
 
-// get the click data from the database
-app.get('/captions', (req, res) => {
-	db.collection('clicks').find().toArray((err, result) => {
-		if (err) return console.log(err);
-		res.send(result);
-	});
+
+
+
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
 });
-
-
-
-
 
 
 

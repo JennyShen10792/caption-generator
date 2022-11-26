@@ -24,6 +24,7 @@ router.get('/login', (req, res) => {
 router.get('/register', (req, res) => {
   res.render('register');
 });
+/*
 router.get('/captions', (req, res) => {
   	User.find(function(err, captions, count) {
 		res.render( 'captions', {
@@ -31,6 +32,16 @@ router.get('/captions', (req, res) => {
 		});
 	});
 })
+*/
+router.get('/captions', (req, res) => {
+	Caption.find({user: req.user ? req.user._id : undefined}, (err, captions, count) => {
+		res.render('captions', {captions:captions});
+	});
+});
+
+
+
+
 router.get('/captions/save', function(req, res) {
   res.render('save');
 });
