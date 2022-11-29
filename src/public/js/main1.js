@@ -35,7 +35,7 @@ function displayMessages() {
         query1 = "category=" + caption_category.value;
     }
 
-    let url = 'http://localhost:3000/api/captions';
+    let url = '/api/captions';
     if (query != "") {
         url += "?" + query;
     }
