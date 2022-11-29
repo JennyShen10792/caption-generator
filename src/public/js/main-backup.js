@@ -20,7 +20,7 @@ function saveCaption(ele) {
             "caption": caption
         }
         console.log(data);
-        fetch('3000/api/caption/save', {
+        fetch('/api/caption/save', {
             method: 'POST',  
             headers: {
             'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ function displayMessages() {
         query1 = "category=" + caption_category.value;
     }
 
-    let url = '3000/api/captions';
+    let url = '/api/captions';
     if (query != "") {
         url += "?" + query;
     }
