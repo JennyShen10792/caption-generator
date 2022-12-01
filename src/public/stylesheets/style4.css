@@ -153,6 +153,7 @@ outputbutton {
 	letter-spacing: 0.2px;
 	font-size: 20px;
 	text-transform: lowercase;
+	text-decoration: none;
 }
 
 form {
@@ -613,4 +614,8 @@ select:-moz-focusring {
 	content: "";
 	clear: both;
 	display: table;
+}
+
+.navClass1 {
+	height: 100px;
 }
