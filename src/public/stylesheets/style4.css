@@ -13,7 +13,12 @@ body {
 	margin-top: 30px;
 	text-align: center;
 }
-outputbutton { background:none; border:none; text-decoration: underline;}
+
+outputbutton {
+	background: none;
+	border: none;
+	text-decoration: underline;
+}
 
 /*
 #container {
@@ -94,10 +99,10 @@ outputbutton { background:none; border:none; text-decoration: underline;}
 }
 */
 
-#rectangle{
-    width:200px;
-    height:100px;
-    background:blue;
+#rectangle {
+	width: 200px;
+	height: 100px;
+	background: blue;
 }
 
 #container {
@@ -254,7 +259,7 @@ footer {
 	color: #FFFFFF;
 	cursor: pointer;
 	display: inline-flex;
-	font-family: CircularStd,sans-serif;
+	font-family: CircularStd, sans-serif;
 	font-size: 1rem;
 	height: auto;
 	justify-content: center;
@@ -263,30 +268,30 @@ footer {
 	position: relative;
 	text-align: center;
 	text-decoration: none;
-	transition: background-color .2s,background-position .2s;
+	transition: background-color .2s, background-position .2s;
 	user-select: none;
 	-webkit-user-select: none;
 	touch-action: manipulation;
 	vertical-align: top;
 	white-space: nowrap;
-  }
-  
-  .button-21:active,
-  .button-21:focus {
+}
+
+.button-21:active,
+.button-21:focus {
 	outline: none;
-  }
-  
-  .button-21:hover {
+}
+
+.button-21:hover {
 	background-position: -20px -20px;
-  }
-  
-  .button-21:focus:not(:active) {
+}
+
+.button-21:focus:not(:active) {
 	box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
-  }
+}
 
-  
 
-  .form__label {
+
+.form__label {
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.2rem;
 	margin-left: 2rem;
@@ -294,13 +299,13 @@ footer {
 	display: block;
 	transition: all 0.3s;
 	transform: translateY(0rem);
-  }
-  
-  .form__input {
+}
+
+.form__input {
 	font-family: 'Roboto', sans-serif;
 	color: #333;
 	font-size: 1.2rem;
-	  margin: 0 auto;
+	margin: 0 auto;
 	padding: 1.5rem 2rem;
 	border-radius: 0.2rem;
 	background-color: rgb(255, 255, 255);
@@ -309,144 +314,144 @@ footer {
 	display: block;
 	border-bottom: 0.3rem solid transparent;
 	transition: all 0.3s;
-  }
-  
-  .form__input:placeholder-shown + .form__label {
+}
+
+.form__input:placeholder-shown+.form__label {
 	opacity: 0;
 	visibility: hidden;
 	-webkit-transform: translateY(-4rem);
 	transform: translateY(-4rem);
-  }
+}
 
-  details {
-  position: relative;
-  width: 300px;
-  margin-right: 1rem;
+details {
+	position: relative;
+	width: 300px;
+	margin-right: 1rem;
 }
 
 details[open] {
-  z-index: 1;
+	z-index: 1;
 }
 
 summary {
-  padding: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  background-color: #ddd;
-  list-style: none;
+	padding: 1rem;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: #ddd;
+	list-style: none;
 }
 
 summary::-webkit-details-marker {
-  display: none;
+	display: none;
 }
 
 details[open] summary:before {
-  content: '';
-  display: block;
-  width: 100vw;
-  height: 100vh;
-  background: transparent;
-  position: fixed;
-  top: 0;
-  left: 0;
+	content: '';
+	display: block;
+	width: 100vw;
+	height: 100vh;
+	background: transparent;
+	position: fixed;
+	top: 0;
+	left: 0;
 }
 
 summary:after {
-  content: '';
-  display: inline-block;
-  float: right;
-  width: .5rem;
-  height: .5rem;
-  border-bottom: 1px solid currentColor;
-  border-left: 1px solid currentColor;
-  border-bottom-left-radius: 2px;
-  transform: rotate(45deg) translate(50%, 0%);
-  transform-origin: center center;
-  transition: transform ease-in-out 100ms
+	content: '';
+	display: inline-block;
+	float: right;
+	width: .5rem;
+	height: .5rem;
+	border-bottom: 1px solid currentColor;
+	border-left: 1px solid currentColor;
+	border-bottom-left-radius: 2px;
+	transform: rotate(45deg) translate(50%, 0%);
+	transform-origin: center center;
+	transition: transform ease-in-out 100ms
 }
 
 summary:focus {
-  outline: none;
+	outline: none;
 }
 
 details[open] summary:after {
-  transform: rotate(-45deg) translate(0%, 0%);
+	transform: rotate(-45deg) translate(0%, 0%);
 }
 
 ul {
-  width: 100%;
-  background: #ddd;
-  position: absolute;
-  top: calc(100% + .5rem);
-  left: 0;
-  padding: 1rem;
-  margin: 0;
-  box-sizing: border-box;
-  border-radius: 5px;
-  max-height: 200px;
-  overflow-y: auto;
+	width: 100%;
+	background: #ddd;
+	position: absolute;
+	top: calc(100% + .5rem);
+	left: 0;
+	padding: 1rem;
+	margin: 0;
+	box-sizing: border-box;
+	border-radius: 5px;
+	max-height: 200px;
+	overflow-y: auto;
 }
 
 li {
-  margin: 0;
-  padding: 1rem 0;
-  border-bottom: 1px solid #ccc;
+	margin: 0;
+	padding: 1rem 0;
+	border-bottom: 1px solid #ccc;
 }
 
-li:first-child {
+/* li:first-child {
   padding-top: 0;
-}
+} */
 
 li:last-child {
-  padding-bottom: 0;
-  border-bottom: none;
+	padding-bottom: 0;
+	border-bottom: none;
 }
 
 /* FAKE SELECT */
 
 summary.radios {
-  counter-reset: radios;
+	counter-reset: radios;
 }
 
 summary.radios:before {
-  content: var(--selection);
+	content: var(--selection);
 }
 
 input[type=radio] {
-  counter-increment: radios;
-  appearance: none;
-  display: none;
+	counter-increment: radios;
+	appearance: none;
+	display: none;
 }
 
 input[type=radio]:checked {
-  display: inline;
-  --display: block;
+	display: inline;
+	--display: block;
 }
 
 input[type=radio]:after {
-  content: attr(title);
-  display: inline;
-  font-size: 1rem;
+	content: attr(title);
+	display: inline;
+	font-size: 1rem;
 }
 
 ul.list {
-  counter-reset: labels;
+	counter-reset: labels;
 }
 
 label {
-  width: 100%;
-  display: flex;
-  cursor: pointer;
-  justify-content: space-between;
+	width: 100%;
+	display: flex;
+	cursor: pointer;
+	justify-content: space-between;
 }
 
 label span {
-  --display: none;
-  display: var(--display);
-  width: 1rem;
-  height: 1rem;
-  border: 1px solid #727272;
-  border-radius: 3px;
+	--display: none;
+	display: var(--display);
+	width: 1rem;
+	height: 1rem;
+	border: 1px solid #727272;
+	border-radius: 3px;
 }
 
 
@@ -460,153 +465,152 @@ select {
 	font: inherit;
 	line-height: 1.5em;
 	padding: 0.5em 3.5em 0.5em 1em;
-  
+
 	/* reset */
-  
-	margin: 0;      
+
+	margin: 0;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-  }
-  
-  
-  /* arrows */
-  
-  select.classic {
+}
+
+
+/* arrows */
+
+select.classic {
 	background-image:
-	  linear-gradient(45deg, transparent 50%, blue 50%),
-	  linear-gradient(135deg, blue 50%, transparent 50%),
-	  linear-gradient(to right, skyblue, skyblue);
+		linear-gradient(45deg, transparent 50%, blue 50%),
+		linear-gradient(135deg, blue 50%, transparent 50%),
+		linear-gradient(to right, skyblue, skyblue);
 	background-position:
-	  calc(100% - 20px) calc(1em + 2px),
-	  calc(100% - 15px) calc(1em + 2px),
-	  100% 0;
+		calc(100% - 20px) calc(1em + 2px),
+		calc(100% - 15px) calc(1em + 2px),
+		100% 0;
 	background-size:
-	  5px 5px,
-	  5px 5px,
-	  2.5em 2.5em;
+		5px 5px,
+		5px 5px,
+		2.5em 2.5em;
 	background-repeat: no-repeat;
-  }
-  
-  select.classic:focus {
+}
+
+select.classic:focus {
 	background-image:
-	  linear-gradient(45deg, white 50%, transparent 50%),
-	  linear-gradient(135deg, transparent 50%, white 50%),
-	  linear-gradient(to right, gray, gray);
+		linear-gradient(45deg, white 50%, transparent 50%),
+		linear-gradient(135deg, transparent 50%, white 50%),
+		linear-gradient(to right, gray, gray);
 	background-position:
-	  calc(100% - 15px) 1em,
-	  calc(100% - 20px) 1em,
-	  100% 0;
+		calc(100% - 15px) 1em,
+		calc(100% - 20px) 1em,
+		100% 0;
 	background-size:
-	  5px 5px,
-	  5px 5px,
-	  2.5em 2.5em;
+		5px 5px,
+		5px 5px,
+		2.5em 2.5em;
 	background-repeat: no-repeat;
 	border-color: grey;
 	outline: 0;
-  }
-  
-  
-  
-  
-  select.round {
+}
+
+
+
+
+select.round {
 	background-image:
-	  linear-gradient(45deg, transparent 50%, gray 50%),
-	  linear-gradient(135deg, gray 50%, transparent 50%),
-	  radial-gradient(#ddd 70%, transparent 72%);
+		linear-gradient(45deg, transparent 50%, gray 50%),
+		linear-gradient(135deg, gray 50%, transparent 50%),
+		radial-gradient(#ddd 70%, transparent 72%);
 	background-position:
-	  calc(100% - 20px) calc(1em + 2px),
-	  calc(100% - 15px) calc(1em + 2px),
-	  calc(100% - .5em) .5em;
+		calc(100% - 20px) calc(1em + 2px),
+		calc(100% - 15px) calc(1em + 2px),
+		calc(100% - .5em) .5em;
 	background-size:
-	  5px 5px,
-	  5px 5px,
-	  1.5em 1.5em;
+		5px 5px,
+		5px 5px,
+		1.5em 1.5em;
 	background-repeat: no-repeat;
-  }
-  
-  select.round:focus {
+}
+
+select.round:focus {
 	background-image:
-	  linear-gradient(45deg, white 50%, transparent 50%),
-	  linear-gradient(135deg, transparent 50%, white 50%),
-	  radial-gradient(gray 70%, transparent 72%);
+		linear-gradient(45deg, white 50%, transparent 50%),
+		linear-gradient(135deg, transparent 50%, white 50%),
+		radial-gradient(gray 70%, transparent 72%);
 	background-position:
-	  calc(100% - 15px) 1em,
-	  calc(100% - 20px) 1em,
-	  calc(100% - .5em) .5em;
+		calc(100% - 15px) 1em,
+		calc(100% - 20px) 1em,
+		calc(100% - .5em) .5em;
 	background-size:
-	  5px 5px,
-	  5px 5px,
-	  1.5em 1.5em;
-	background-repeat: no-repeat;
-	border-color: green;
-	outline: 0;
-  }
-  
-  
-  
-  
-  
-  select.minimal {
-	background-image:
-	  linear-gradient(45deg, transparent 50%, gray 50%),
-	  linear-gradient(135deg, gray 50%, transparent 50%),
-	  linear-gradient(to right, #ccc, #ccc);
-	background-position:
-	  calc(100% - 20px) calc(1em + 2px),
-	  calc(100% - 15px) calc(1em + 2px),
-	  calc(100% - 2.5em) 0.5em;
-	background-size:
-	  5px 5px,
-	  5px 5px,
-	  1px 1.5em;
-	background-repeat: no-repeat;
-  }
-  
-  select.minimal:focus {
-	background-image:
-	  linear-gradient(45deg, green 50%, transparent 50%),
-	  linear-gradient(135deg, transparent 50%, green 50%),
-	  linear-gradient(to right, #ccc, #ccc);
-	background-position:
-	  calc(100% - 15px) 1em,
-	  calc(100% - 20px) 1em,
-	  calc(100% - 2.5em) 0.5em;
-	background-size:
-	  5px 5px,
-	  5px 5px,
-	  1px 1.5em;
+		5px 5px,
+		5px 5px,
+		1.5em 1.5em;
 	background-repeat: no-repeat;
 	border-color: green;
 	outline: 0;
-  }
-  
-  
-  select:-moz-focusring {
+}
+
+
+
+
+
+select.minimal {
+	background-image:
+		linear-gradient(45deg, transparent 50%, gray 50%),
+		linear-gradient(135deg, gray 50%, transparent 50%),
+		linear-gradient(to right, #ccc, #ccc);
+	background-position:
+		calc(100% - 20px) calc(1em + 2px),
+		calc(100% - 15px) calc(1em + 2px),
+		calc(100% - 2.5em) 0.5em;
+	background-size:
+		5px 5px,
+		5px 5px,
+		1px 1.5em;
+	background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+	background-image:
+		linear-gradient(45deg, green 50%, transparent 50%),
+		linear-gradient(135deg, transparent 50%, green 50%),
+		linear-gradient(to right, #ccc, #ccc);
+	background-position:
+		calc(100% - 15px) 1em,
+		calc(100% - 20px) 1em,
+		calc(100% - 2.5em) 0.5em;
+	background-size:
+		5px 5px,
+		5px 5px,
+		1px 1.5em;
+	background-repeat: no-repeat;
+	border-color: green;
+	outline: 0;
+}
+
+
+select:-moz-focusring {
 	color: transparent;
 	text-shadow: 0 0 0 #000;
-  }
+}
 
-  .center {
+.center {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	width: 50%;
-  }
+}
 
-  .column {
+.column {
 	float: left;
 	width: 30%;
 	padding: 1px;
 	margin-left: 30px;
-  }
-  
-  /* Clear floats after image containers */
-  .row::after {
+}
+
+/* Clear floats after image containers */
+.row::after {
 	content: "";
 	clear: both;
 	display: table;
-  }
- 
+}
