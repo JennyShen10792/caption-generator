@@ -2,165 +2,305 @@
 	{{!-- <h3> Logged in as {{user.username}}</h3> --}}
 
 	<head>
-		<title></title>
-		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
-		<link rel="stylesheet" href="stylesheets/style4.css" type="text/css" media="screen" title="no title"
+		<title>Pop Culture Caption Generator</title>
+		<!-- CSS only -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+			rel="stylesheet">
+		<link rel="icon" href="images/logo.png">
+		<link rel="stylesheet" href="stylesheets/style5.css" type="text/css" media="screen" title="no title"
 			charset="utf-8">
+
 	</head>
 
 	<body>
-		<div id="container">
-			<div id="header">
-				<div id="left-col">
-					<section class="logo-name">
-						<h1>Pop Culture Generator</h1>
-					</section>
-				</div>
+		{{!-- NAVBAR START --}}
+		<nav class="navbar navbar-expand-lg navClass">
+			<div class="container-fluid navClass1">
+				<a class="navbar-brand ms-60 d-flex align-items-center navClass2">
+					<img src="images/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+					<h2>Pop Culture Caption Generator</h2>
+				</a>
 
-				<div id="right-col">
-					<div id="links">
-						<li><a href="/captions">Saved Captions</a></li>
-						<li><a href="/logout">Logout</a></li>
-
-						<!-- <li><a href="login.html">Login</a></li>
-						<li><a href="register.html">Register</a></li> -->
-					</div>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mb-2 mb-lg-0 navClass3">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="/captions">
+								<h2>Saved Captions</h2>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/logout">
+								<h2>Logout</h2>
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
-			<div id="content">
-				<div class="main">
-					<div class="form-container">
-						<img src="/images/logo.png" width="500" height="333" class="center"></img>
-						<div class="form-title">
-							<h1>Pop Culture Generator</h1>
-							<h3> Logged in as {{user.username}}</h3>
-						</div>
-						<p style="font-size: x-large">
-							Caption Type:
-						</p>
-						</p>
-							<select id="filterType" name="type" class="round">
-								<option value = "movies">Movie Quotes</option>
-								<option value = "songs">Song Lyrics</option>
-								<option value="puns">Puns</option>
-								<option value="people">Famous Quotes</option>
-							</select>
-						</p>
-						<p style="font-size: x-large"> Keyword:
-						</p>
-						<p>
-							<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-							<div class="form__group">
-								<input type="text" class="form__input" id="filterWord" placeholder="Keyword" required="" />
-							</div>
-					
-							<br>
-							{{!-- <button onclick="keyword_input()" id = "filterBtn" type="submit" value="Search" class="button-21" role="button">Search</button> --}}
-							{{!-- <input onclick="keyword_input()" id="filterBtn" type="submit" value="Search"> --}}
-							<button onclick="keyword_input()" id = "filterBtn" type="submit" value="Search" class="button-21" role="button">Search</button>
-						</p>
-					</div>
+		</nav>
+		{{!-- NAVBAR END --}}
 
-					<br>
-					<br>
-					
-					<div class="row">
-						<div class="column">
-							<img src = "../images/pic2.jpg" style="width:90%">
-						</div>
-						<div class="column">
-							<img src = "../images/pic5.jpg" style="width:90%">
-						</div>
-						<div class="column">
-							<img src = "../images/beach_insta1.jpg" style="width:90%">
-						</div>
+		<div class="row">
+			<div class="col-md-12 whiteSpace1"></div>
+		</div>
+
+		<div class="row">
+			<div class="col-2">
+			</div>
+			<div class="col-8 d-flex justify-content-center flex-column">
+				<div class="row  d-flex flex-column whiteSpace2">
+					<div class="col">
+						<h1 class="text-center">Caption Type:</h1>
 					</div>
 				</div>
-				<div id="messages"></div>
+				<div class="form-floating d-flex justify-content-center whiteSpace3">
+					<select class="form-select" id="filterType" name="type" aria-label="Floating label select example">
+						<option selected> Caption Type</option>
+						<option value="movies">Movie Quotes</option>
+						<option value="songs">Song Lyrics</option>
+						<option value="puns">Puns</option>
+						<option value="people">Famous Quotes</option>
+					</select>
+					<label for="floatingSelect">Select a caption type</label>
+				</div>
+
+
+				<div class="row">
+					<div class="col-12 whiteSpace2"></div>
+				</div>
+
+				<p class="d-flex justify-content-center" style="font-size: x-large">
+					Keyword:
+				</p>
+			</div>
+
+			<div class="col-2">
 			</div>
 		</div>
+
+		<div class="row d-flex justify-content-center">
+			<div class="col-12 col-md-10 d-flex flex-column justify-content-center">
+				<div class="p-3 m-0 border-0 bd-example">
+					<div class="input-group mb-3 ">
+						<div class="form-floating">
+							<input type="text" class="form-control" id="filterWord" placeholder="Keyword">
+							<label for="floatingInputGroup1">Keyword</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col"></div>
+			<div class="col-4 d-flex justify-content-center">
+				<button onclick="keyword_input()" value="Search" type="submit" id="filterBtn"
+					class="btn btn-outline-primary button-21" role="button">Search</button>
+			</div>
+			<div class="col"></div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-12 whiteSpace2"></div>
+		</div>
+
+
+		<div class="row d-flex justify-content-center">
+
+			<div id="messages" class="col-10 d-grid gap-2 d-flex flex-column justify-content-center">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12 whiteSpace2"></div>
+		</div>
+
+		<div class="row d-flex justify-content-center">
+			<div class="col d-flex justify-content-center">
+				<img src="images/beach_insta1.jpg" alt="">
+			</div>
+			<div class="col d-flex justify-content-center">
+				<img src="images/pic5.jpg" alt="">
+			</div>
+			<div class="col d-flex justify-content-center">
+				<img src="images/pic2.jpg" alt="">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12 whiteSpace2"></div>
+		</div>
+
+
 		<script src="js/main-backup.js"></script>
+
+		<!-- JavaScript Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+			crossorigin="anonymous"></script>
+
 	</body>
 {{else}}
 
 	<head>
-		<title></title>
-		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
-		<link rel="stylesheet" href="stylesheets/style4.css" type="text/css" media="screen" title="no title"
+		<title>Pop Culture Caption Generator</title>
+		<!-- CSS only -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+			rel="stylesheet">
+		<link rel="icon" href="images/logo.png">
+		<link rel="stylesheet" href="stylesheets/style5.css" type="text/css" media="screen" title="no title"
 			charset="utf-8">
+
 	</head>
 
 	<body>
-		<div id="container">
-			<div id="header">
-				<div id="left-col">
-					<section class="logo-name">
-						<h1>Pop Culture Generator</h1>
-					</section>
-				</div>
+		{{!-- NAVBAR START --}}
+		<nav class="navbar navbar-expand-lg navClass">
+			<div class="container-fluid navClass1">
+				<a class="navbar-brand ms-60 d-flex align-items-center navClass2">
+					<img src="images/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+					<h2>Pop Culture Caption Generator</h2>
+				</a>
 
-				<div id="right-col">
-					<div id="links">
-						<li><a href="/login">Login</a></li>
-						<li><a href="/register">Register</a></li>
-
-						<!-- <li><a href="login.html">Login</a></li>
-						<li><a href="register.html">Register</a></li> -->
-					</div>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mb-2 mb-lg-0 navClass3">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="/login">
+								<h2>Login</h2>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/register">
+								<h2>Register</h2>
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
-			<br>
-			<br>
-			<img src="/images/logo.png" width="500" height="333" class="center"></img>
-			<div id="content">
-				<div class="main">
-					<div class="form-container">
-						<div class="form-title">
-							<h1>Pop Culture Generator</h1>
-						</div>
-						<p style="font-size: x-large">
-							Caption Type:
-						</p>
-						</p>
-							<select id="filterType" name="type" class="round">
-								<option value = "movies">Movie Quotes</option>
-								<option value = "songs">Song Lyrics</option>
-								<option value="puns">Puns</option>
-								<option value="people">Famous Quotes</option>
-							</select>
-						</p>
-						{{!-- <p>Keyword: <input type="text" id="filterWord" name="word" class="word" maxlength=""></p>
-						<input onclick="keyword_input()" id="filterBtn" type="submit" value="Search"> --}}
-						<p style="font-size: x-large"> Keyword:
-						</p>
-						<p>
-							<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-							<div class="form__group">
-								<input type="text" class="form__input" id="filterWord" placeholder="Keyword" required="" />
-							</div>
-					
-							<br>
-							<button onclick="keyword_input()" id = "filterBtn" type="submit" value="Search" class="button-21" role="button">Search</button>
-							{{!-- <input onclick="keyword_input()" id="filterBtn" type="submit" value="Search"> --}}
+		</nav>
+		{{!-- NAVBAR END --}}
 
-						</p>
-					</div>
+		<div class="row">
+			<div class="col-md-12 whiteSpace1"></div>
+		</div>
 
-					<div class="row">
-						<div class="column">
-							<img src = "../images/pic2.jpg" style="width:90%">
-						</div>
-						<div class="column">
-							<img src = "../images/pic5.jpg" style="width:90%">
-						</div>
-						<div class="column">
-							<img src = "../images/beach_insta1.jpg" style="width:90%">
-						</div>
+		<div class="row">
+			<div class="col-2">
+			</div>
+			<div class="col-8 d-flex justify-content-center flex-column">
+				<div class="row  d-flex flex-column whiteSpace2">
+					<div class="col">
+						<h1 class="text-center">Caption Type:</h1>
 					</div>
 				</div>
-				<div id="messages"></div>
+				<div class="form-floating d-flex justify-content-center whiteSpace3">
+					<select class="form-select" id="filterType" name="type" aria-label="Floating label select example">
+						<option selected> Caption Type</option>
+						<option value="movies">Movie Quotes</option>
+						<option value="songs">Song Lyrics</option>
+						<option value="puns">Puns</option>
+						<option value="people">Famous Quotes</option>
+					</select>
+					<label for="floatingSelect">Select a caption type</label>
+				</div>
+
+
+				<div class="row">
+					<div class="col-12 whiteSpace2"></div>
+				</div>
+
+				<p class="d-flex justify-content-center" style="font-size: x-large">
+					Keyword:
+				</p>
+			</div>
+
+			<div class="col-2">
 			</div>
 		</div>
+
+		<div class="row d-flex justify-content-center">
+			<div class="col-12 col-md-10 d-flex flex-column justify-content-center">
+				<div class="p-3 m-0 border-0 bd-example">
+					<div class="input-group mb-3 ">
+						<div class="form-floating">
+							<input type="text" class="form-control" id="filterWord" placeholder="Keyword">
+							<label for="floatingInputGroup1">Keyword</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col"></div>
+			<div class="col-4 d-flex justify-content-center">
+				<button onclick="keyword_input()" value="Search" type="submit" id="filterBtn"
+					class="btn btn-outline-primary button-21" role="button">Search</button>
+			</div>
+			<div class="col"></div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-12 whiteSpace2"></div>
+		</div>
+
+
+		<div class="row d-flex justify-content-center">
+
+			<div id="messages" class="col-10 d-grid gap-2 d-flex flex-column justify-content-center">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12 whiteSpace2"></div>
+		</div>
+
+		<div class="row d-flex justify-content-center">
+			<div class="col d-flex justify-content-center">
+				<img src="images/beach_insta1.jpg" alt="">
+			</div>
+			<div class="col d-flex justify-content-center">
+				<img src="images/pic5.jpg" alt="">
+			</div>
+			<div class="col d-flex justify-content-center">
+				<img src="images/pic2.jpg" alt="">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12 whiteSpace2"></div>
+		</div>
+
+
+
 		<script src="js/main1.js"></script>
+
+
+		<!-- JavaScript Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+			crossorigin="anonymous"></script>
+
 	</body>
 {{/if}}
