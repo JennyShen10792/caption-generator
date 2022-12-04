@@ -2,6 +2,7 @@ function displayRecord(record) {
     const contentEle = document.getElementById("messages");
     const div = document.createElement("div");
     div.innerText = record["captions"];
+    div.className = "col-md-7 rounded fs-6 mx-auto text-wrap text-center bgMsg p-3";
     contentEle.appendChild(div);
 }
 
@@ -9,12 +10,12 @@ function doSomething(event) {
     if (confirm('Are you sure you want to save this caption?')) {
         // Save it!
         alert('Caption was saved!');
-        
+
         var source = event.target || event.srcElement;
         console.log(source);
         console.log(source.innerText);
-        
-        
+
+
     } else {
         // Do nothing!
         alert('Caption was not saved.');
