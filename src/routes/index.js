@@ -46,6 +46,8 @@ router.get('/captions/save', function(req, res) {
   res.render('save');
 });
 
+
+
 router.post('/captions/save', function(req, res) {
 	console.log(req.body.captionName);
 	new Caption({
@@ -55,6 +57,23 @@ router.post('/captions/save', function(req, res) {
 		res.redirect('/captions');
 	});
 });
+
+router.get('/captions/delete', (req, res) => {
+	Caption.findByIdAndRemove(req.query.id, function (err) {
+  		if (err) {
+  			console.log(err);
+		}
+		else {
+			res.redirect('/captions');
+		}
+	});			
+});
+
+
+
+
+
+
 router.post('/register', (req, res) => {
   const { username, password } = req.body;
   User.register(new User({ username }), req.body.password, (err, user) => {
