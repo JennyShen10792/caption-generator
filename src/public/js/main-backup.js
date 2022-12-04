@@ -15,7 +15,7 @@ function saveCaption(ele) {
       //  alert(event);
       //  var source = event.srcElement || event.target;
         var caption = ele.innerText;
- 
+ 	
         let data = {
             "caption": caption
         }

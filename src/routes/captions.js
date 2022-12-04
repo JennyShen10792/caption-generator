@@ -20,4 +20,15 @@ router.get('/captions', (req, res) => {
   });
 });
 
+
+router.get('/delete', (req, res) => {
+	Caption.findByIdAndRemove(req.query.id, function (err) {
+  		if (err) {
+  			console.log(err);
+		}
+		else {
+			res.redirect('/captions');
+		}
+	});			
+});
 module.exports = router;

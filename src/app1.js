@@ -356,7 +356,6 @@ app.post('/api/caption/save', (req, res) => {
 		console.log(count);
 		res.send(saved);
 	});
-	
   	
 });
 

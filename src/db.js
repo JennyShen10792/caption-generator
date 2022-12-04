@@ -13,6 +13,7 @@ const Caption = new mongoose.Schema({
 });
 
 
+
 User.plugin(passportLocalMongoose);
 Caption.plugin(URLSlugs('name'));
 
