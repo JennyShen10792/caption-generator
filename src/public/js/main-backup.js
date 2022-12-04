@@ -2,39 +2,40 @@ function displayRecord(record) {
     const contentEle = document.getElementById("messages");
     const div = document.createElement("div");
     div.innerText = record["captions"];
-    //setAttribute('onclick', 'saveCaption');
+    div.className = "col-md-7 rounded fs-6 mx-auto text-wrap text-center bgMsg p-3";
+    div.style.cursor = "pointer";
     div.setAttribute('onclick', 'saveCaption(this)');
     //contentEle.onClick=saveCaption;
     contentEle.appendChild(div);
-    
+
 }
 
 function saveCaption(ele) {
     if (confirm('Are you sure you want to save this caption?')) {
         // Save it!
-      //  alert(event);
-      //  var source = event.srcElement || event.target;
+        //  alert(event);
+        //  var source = event.srcElement || event.target;
         var caption = ele.innerText;
- 
+
         let data = {
             "caption": caption
         }
         console.log(data);
         fetch('/api/caption/save', {
-            method: 'POST',  
+            method: 'POST',
             headers: {
-            'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
         })
-        .then(response => response.json())
-        .then(data => {
+            .then(response => response.json())
+            .then(data => {
                 console.log('Success:', data);
                 alert('Caption was saved!');
-        })
-        .catch((error) => {
+            })
+            .catch((error) => {
                 console.error('Error:', error);
-        });        
+            });
 
     } else {
         // Do nothing!
@@ -92,7 +93,7 @@ function main() {
     filterBtn.onclick = clickFilter;
 
     //var anchor = document.getElementById("anchor");
-   // anchor.addEventListener('click', doSomething(), false);
+    // anchor.addEventListener('click', doSomething(), false);
 
     // var messages = document.getElementById("messages");
     // messages.addEventListener('click', doSomething(), false);
