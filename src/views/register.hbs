@@ -1,11 +1,3 @@
-{{!-- <form method="POST" action="">
-	<div class='form-row'><label>Username:</label> <input name="username" type="text"></div>
-	<div class='form-row'><label>Password:</label> <input name="password" type="password"></div>
-	<div class='form-row'><input type="submit" value="Register"></div>
-	<div class='form-row'>Already have an account? <a href="/login">Login</a>.</div>
-</form> --}}
-
-
 <head>
 	<link rel="stylesheet" href="stylesheets/register.css">
 	<title> Register </title>
@@ -18,6 +10,9 @@
 
 			<div class="login">
 				<div class="login-header">
+					{{#if error}}
+						<p class="err-msg">This user already exists</p>
+					{{/if }}
 					<h3>REGISTER</h3>
 					<p>Please enter your credentials to register.</p>
 				</div>
