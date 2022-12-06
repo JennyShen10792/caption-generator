@@ -84,31 +84,36 @@ app.get('/api/captions', function (req, res) {
 
 	console.log(req.query.type);
 	console.log(req.query.category);
+	var keywords = req.query.type; 
+	const array_keyword = keywords.split(',');
+	console.log(array_keyword);
+
+	// console.log(array_keyword);
+	// add array to url in format specific to website 
 
 	if (req.query.category != null || req.query.category != "") {
+		// if (req.query.category == "songs") {
+		// 	let lyrics_list = [];
+			
 		if (req.query.category == "songs") {
 			let lyrics_list = [];
 
 			(async () => {
 
-				const songURL = ('https://www.lyrics.com/lyrics/' + req.query.type);
-				const response = await request({
-					uri: songURL,
-					headers: {
-						'Accept':
-							'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-						'Accept-Encoding': 'gzip, deflate, br',
-						'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8,ro;q=0.7,ru;q=0.6,la;q=0.5,pt;q=0.4,de;q=0.3',
-						'Cache-Control': 'max-age=0',
-						'Connection': 'keep-alive',
-						'Host': 'www.lyrics.com',
-						'Upgrade-Insecure-Requests': '1',
-						'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
-					},
-					gzip: true
-
-				});
-
+				let songURL = "https://www.lyrics.com/lyrics/";
+				for (let i = 0; i < array_keyword.length; i++) {
+					if (i == (array_keyword.length - 1)) {
+						songURL += array_keyword[i];
+					}
+					else {
+						songURL += (array_keyword[i] + "%20");
+					}
+					
+				}
+				console.log(songURL);
+				
+				
+				let response = await request(songURL);
 				try {
 
 					let $ = cheerio.load(response);
@@ -139,16 +144,26 @@ app.get('/api/captions', function (req, res) {
 							})
 						}
 						else {
+							var one_line = 0;
 							for (let i = 0; i < splitLines.length; i++) {
 
 								//if(check == 0 && (splitLines[i].includes(req.query.type.toString())) || (splitLines[i].includes(req.query.type+","))){
-
-								if (check == 0 && ((splitLines[i].toString()).toLowerCase().includes((req.query.type.toString()).toLowerCase()) || (splitLines[i].toString()).toLowerCase().includes((req.query.type.toString()).toLowerCase() + ", "))) {
-									lyrics_list.push({
-										'captions': splitLines.slice(0, i + 1)
-									})
-									break;
-								}
+									for (let j = 0; j < array_keyword.length; j++) {
+										var current_keyword = array_keyword[j];
+										if (check == 0 && ((splitLines[i].toString()).toLowerCase().includes(current_keyword.toLowerCase()) || (splitLines[i].toString()).toLowerCase().includes(current_keyword.toLowerCase() + ", "))) {
+											one_line = 1;
+											
+											break;
+										}
+									}
+									if (one_line > 0){
+										lyrics_list.push({
+											'captions': splitLines.slice(0, i + 1)
+										})
+										break;
+									}
+									
+								
 							}
 						}
 
@@ -179,6 +194,7 @@ app.get('/api/captions', function (req, res) {
 				// new_lyrics_list = uniq(lyrics_list)
 				console.log(new_lyrics_list)
 				res.send(new_lyrics_list);
+				console.log(songURL);
 			})();
 		}
 
@@ -228,23 +244,21 @@ app.get('/api/captions', function (req, res) {
 
 			(async () => {
 
-				const peopleURL = ('https://www.quotes.net/quotations/' + req.query.type);
-				const response = await request({
-					uri: peopleURL,
-					headers: {
-						'Accept':
-							'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-						'Accept-Encoding': 'gzip, deflate, br',
-						'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8,ro;q=0.7,ru;q=0.6,la;q=0.5,pt;q=0.4,de;q=0.3',
-						'Cache-Control': 'max-age=0',
-						'Connection': 'keep-alive',
-						'Host': 'www.quotes.net',
-						'Upgrade-Insecure-Requests': '1',
-						'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
-					},
-					gzip: true
-
-				});
+				let peopleURL = "https://www.quotes.net/quotations/";
+				for (let i = 0; i < array_keyword.length; i++) {
+					if (i == (array_keyword.length - 1)) {
+						peopleURL += array_keyword[i];
+					}
+					else {
+						peopleURL += (array_keyword[i] + "%20");
+					}
+					
+				}
+				console.log(peopleURL);
+				
+				
+				let response = await request(peopleURL);
+				
 
 				try {
 
@@ -282,7 +296,19 @@ app.get('/api/captions', function (req, res) {
 
 			(async () => {
 
-				let movieURL = ('https://www.moviequotes.com/search-quotes/?q=' + req.query.type);
+				let movieURL = 'https://www.moviequotes.com/search-quotes/?q=';
+
+				for (let i = 0; i < array_keyword.length; i++) {
+					if (i == (array_keyword.length - 1)) {
+						movieURL += array_keyword[i];
+					}
+					else {
+						movieURL += (array_keyword[i] + "+");
+					}
+					
+				}
+				console.log(movieURL);
+
 				let response = await request(movieURL);
 				try {
 
