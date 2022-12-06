@@ -58,21 +58,22 @@ router.get('/captions', (req, res) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
 router.get('/captions/save', function(req, res) {
   res.render('save');
 });
 
 
 
-router.post('/captions/save', function(req, res) {
-	console.log(req.body.captionName);
-	new Caption({
-		user:User,
-		name: req.body.captionName
-	}).save(function(err, caption, count){
-		res.redirect('/captions');
-	});
-});
 
 router.get('/captions/delete', (req, res) => {
 	Caption.findByIdAndRemove(req.query.id, function (err) {
@@ -156,4 +157,14 @@ router.post('/captions', (req, res) => {
 //   res.redirect('/captions');
 // }
 // });
+
+router.post('/captions/save', function(req, res) {
+	console.log(req.body.captionName);
+	new Caption({
+		user:User,
+		name: req.body.captionName
+	}).save(function(err, caption, count){
+		res.redirect('/captions');
+	});
+});
 module.exports = router;
