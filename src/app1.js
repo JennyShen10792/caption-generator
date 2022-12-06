@@ -198,47 +198,6 @@ app.get('/api/captions', function (req, res) {
 			})();
 		}
 
-		if (req.query.category == "puns") {
-			let puns_list = [];
-
-			(async () => {
-
-				const punsURL = ('https://puns.samueltaylor.org/?word=' + req.query.type);
-				let response = await request(punsURL);
-
-				try {
-
-					let $ = cheerio.load(response);
-
-					let label = $('.puns');
-					let output = label.find('li').text();
-
-					$('#puns-list').each((index, element) => {
-						const captions = $(element).text();
-						let check1 = 0;
-						for (let i = 0; i <= BAD_KEYWORDS.length; i++) {
-							if (captions.includes(BAD_KEYWORDS[i])) {
-								check1 = 1;
-								break;
-							}
-						}
-						if (check1 == 0) {
-							puns_list.push({
-								'captions': captions
-							})
-						}
-					});
-
-				} catch (err) {
-					console.log(err);
-				}
-
-
-				console.log(puns_list)
-				res.send(puns_list);
-			})();
-		}
-
 		else if (req.query.category == "people") {
 			let people_list = [];
 
