@@ -31,4 +31,18 @@ router.get('/delete', (req, res) => {
 		}
 	});			
 });
+
+// router.get('/search', (req, res) => {
+// 	const { keyword_search } = req.body;
+//   var cursor = Caption.find();
+//   cursor.forEach(function(doc) {
+//     var checker = Caption['name'];
+//       if(checker.includes(keyword_search)){
+//         cursor.find();
+//       }
+//       else {
+//         res.redirect('/captions');
+//       }
+//   })
+// });
 module.exports = router;

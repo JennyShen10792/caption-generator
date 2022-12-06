@@ -8,6 +8,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
 		<link rel="stylesheet" href="stylesheets/captions.css" type="text/css" media="screen" title="no title"
 			charset="utf-8">
+			
 </head>
 
 {{!-- <table class="styled-table">
@@ -17,6 +18,18 @@
 	</tr>
 {{/each}}
 </table> --}}
+
+<body>
+
+<p class="d-flex justify-content-center" style="font-size: x-large">Keyword:</p>
+
+
+<form class="search-form" method="POST" action="">
+				<input name="keyword_search" type="text" placeholder="keyword" id="keyword_search">
+				{{!-- <input id="button" type="search" value="Search"> --}}
+</form>
+
+
 
 <table class="styled-table">
     <thead>
@@ -33,4 +46,8 @@
 		{{/each}}
     </tbody>
 </table>
+
+<script src="js/caption.js"></script>
+
+</body>
 

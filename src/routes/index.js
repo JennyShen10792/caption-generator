@@ -1,3 +1,5 @@
+const { MongoCursorExhaustedError } = require('mongodb');
+
 const express = require('express'),
   router = express.Router(),
   passport = require('passport'),
@@ -33,11 +35,25 @@ router.get('/captions', (req, res) => {
 	});
 })
 */
+
+// API Captions
+
+router.get('/api/captions', async(req, res) => {
+
+
+  const captions = await Caption.find({user: req.user ? req.user._id : undefined});
+
+ res.status(200).json({success:true,data:captions})
+});
+
+
 router.get('/captions', (req, res) => {
 	Caption.find({user: req.user ? req.user._id : undefined}, (err, captions, count) => {
 		res.render('captions', {captions:captions});
 	});
 });
+
+
 
 
 
@@ -69,11 +85,6 @@ router.get('/captions/delete', (req, res) => {
 	});			
 });
 
-
-
-
-
-
 router.post('/register', (req, res) => {
   const { username, password } = req.body;
   User.register(new User({ username }), req.body.password, (err, user) => {
@@ -101,4 +112,48 @@ router.post('/login', (req, res, next) => {
 router.post('/captions', (req, res) => {
 	res.render('captions')
 });
+
+// router.get('/search', (req, res) => {
+// 	const { keyword_search } = req.body;
+//   var cursor = Caption.find();
+//   cursor.forEach(function(doc) {
+//     var checker = Caption['name'];
+//       if(checker.includes(keyword_search)){
+//         cursor.find();
+//       }
+//       else {
+//         res.redirect('/captions');
+//       }
+//   })
+//   if (err) {
+//     console.log(err);
+// }
+// else {
+//   res.redirect('/captions');
+// }
+// });
+
+// router.get('/captions/search', function(req, res) {
+//   res.render('save');
+// });
+
+// router.post('captions/search', (req, res) => {
+// 	const { keyword_search } = req.body;
+//   let cursor = Caption.find();
+//   cursor.forEach(function(doc) {
+//     let checker = Caption['name'];
+//       if(checker.includes(keyword_search)){
+//         cursor.find();
+//       }
+//       else {
+//         res.redirect('/captions');
+//       }
+//   })
+//   if (err) {
+//     console.log(err);
+// }
+// else {
+//   res.redirect('/captions');
+// }
+// });
 module.exports = router;
