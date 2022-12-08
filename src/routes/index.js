@@ -66,7 +66,7 @@ router.get('/captions', (req, res) => {
 router.get('/api/capsearch', async(req, res) => {
 
 
-  const captions = await Caption.find({user: req.user ? req.user._id : undefined});
+    const captions = await Caption.find({user: req.user ? req.user._id : undefined});
 
  res.status(200).json({success:true,data:captions})
 });
