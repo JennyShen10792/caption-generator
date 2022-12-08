@@ -65,8 +65,10 @@ nav img {
 }
 
 .bgMsg {
-    color: white;
-    background-color: #0072bb;
+    color: black;
+    background-color: #a0cfec;
+    /* font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif; */
 }
 
 .whiteSpace4 {
