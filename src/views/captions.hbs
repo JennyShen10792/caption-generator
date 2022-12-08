@@ -4,23 +4,24 @@
 
 
 <head>
-		<title></title>
-		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
-		<link rel="stylesheet" href="stylesheets/captions.css" type="text/css" media="screen" title="no title"
-			charset="utf-8">
+	<title>Saved Captions - Pop Culture Caption Generator</title>
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
+	<link rel="stylesheet" href="stylesheets/captions.css" type="text/css" media="screen" title="no title"
+		charset="utf-8">
+	<link rel="icon" href="images/logo.png">
 </head>
 
 <body>
 
-<p class="d-flex justify-content-center" style="font-size: x-large">Keyword:</p>
+	<p class="d-flex justify-content-center" style="font-size: x-large">Keyword:</p>
 
 
-<form class="search-form" method="POST" action="">
-				<input name="keyword_search" type="text" placeholder="keyword" id="keyword_search">
-				{{!-- <input id="button" type="search" value="Search"> --}}
-</form>
+	<form class="search-form" method="POST" action="">
+		<input name="keyword_search" type="text" placeholder="keyword" id="keyword_search">
+		{{!-- <input id="button" type="search" value="Search"> --}}
+	</form>
 
-{{!-- <table class="styled-table">
+	{{!-- <table class="styled-table">
 {{#each captions}}
 	<tr>
 		<td>{{this.name}}</td>
@@ -28,23 +29,23 @@
 {{/each}}
 </table> --}}
 
-<table class="styled-table">
-    <thead>
-        <tr>
-            <th>All Captions</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each captions}}
-		<tr class="active-row">
-			<td>{{this.name}}</td>
-			<td><a href="/captions/delete?id={{this.id}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a> 
-		</tr>
-		{{/each}}
-    </tbody>
-</table>
+	<table class="styled-table">
+		<thead>
+			<tr>
+				<th>All Captions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each captions}}
+				<tr class="active-row">
+					<td>{{this.name}}</td>
+					<td><a href="/captions/delete?id={{this.id}}"
+							onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
 
-<script src="js/caption.js"></script>
+	<script src="js/caption.js"></script>
 
 </body>
-

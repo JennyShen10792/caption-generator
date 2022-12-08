@@ -1,9 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    /* font-family: 'Marker Felt', fantasy; */
-    font-family: 'Noto Sans JP', sans-serif;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Marker Felt', fantasy;
+    /* font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif; */
     box-sizing: content-box;
     background-color: #E3E4FA;
     letter-spacing: 0.05em;
@@ -67,4 +67,8 @@ nav img {
 .bgMsg {
     color: white;
     background-color: #0072bb;
+}
+
+.whiteSpace4 {
+    height: 20px;
 }
